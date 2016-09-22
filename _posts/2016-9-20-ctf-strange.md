@@ -14,6 +14,7 @@ keywords: CTF, 玄学问题
 输入输出是CTF Pwnable题目的家常便饭，所以这一类问题在CTF PWN题也比较普遍。
 ### Linux/Unix Socket缓冲区导致的输入输出问题
 #### 问题描述
+
 比如当目标服务接受数据的代码为以下代码时
 
 ```
