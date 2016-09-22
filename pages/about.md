@@ -8,9 +8,10 @@ menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+Atum
 
-仰慕「优雅编码的艺术」。
+Institute of Computer Science and Technology, Peking University
+
 
 ## 坚信
 
