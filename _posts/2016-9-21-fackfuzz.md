@@ -8,6 +8,8 @@ keywords: fackfuzz, Writeup, 武汉大学邀请赛
 
 # 安恒杯武汉大学邀请赛fackfuzz Writeup
 
+题目文件与binary文件下载:https://github.com/A7um/CTF_exploits/tree/master/fackfuzz
+
 ## 漏洞分析
 
 这道题目是我的一个本科同学出的，也是CTF中比较少见的多线程竞态条件的题目，我觉得这个题目出的还是蛮好的，于是就写一下writeup。
