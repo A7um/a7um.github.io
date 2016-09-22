@@ -13,11 +13,6 @@ Atum
 Institute of Computer Science and Technology, Peking University
 
 
-## 坚信
-
-* 熟能生巧
-* 努力改变人生
-
 ## 联系
 
 * GitHub: https://github.com/a7um
