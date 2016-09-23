@@ -10,7 +10,9 @@ permalink: /about/
 
 Atum
 
-Institute of Computer Science and Technology, Peking University
+Member of Blue-Lotus, Member of Redbud
+
+Master of Computer Science, Institute of Computer Science and Technology, Peking University
 
 
 ## 联系
