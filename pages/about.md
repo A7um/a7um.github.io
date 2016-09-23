@@ -8,14 +8,13 @@ menu: 关于
 permalink: /about/
 ---
 
-Atum
+## About Me
 
-Member of Blue-Lotus, Member of Redbud
+* ID:Atum
+* Member of Blue-Lotus, Member of Redbud
+* Master of Computer Science, Institute of Computer Science and Technology, Peking University
 
-Master of Computer Science, Institute of Computer Science and Technology, Peking University
-
-
-## 联系
+## Contact
 
 * GitHub: https://github.com/a7um
 * Email: lgcpku@gmail.com or atum@pku.edu.cn
