@@ -8,7 +8,7 @@ menu: 维基
 permalink: /wiki/
 ---
 
-> Under construction
+> Hello, Wiki is on
 
 <ul class="listing">
 {% for wiki in site.wiki %}
