@@ -23,3 +23,4 @@ keywords: 资料，参考文献,reference
 * [ettercap filter 教程](http://blog.csdn.net/jhonguy/article/details/7494858)
 * [linkmap 源代码](https://github.com/lattera/glibc/blob/master/include/link.h#L85)
 * [standard stream buffering](http://www.pixelbeat.org/programming/stdio_buffering/)
+* [Awesome Windows Exploitation](https://github.com/enddo/awesome-windows-exploitation/blob/master/README.md)
