@@ -24,3 +24,4 @@ keywords: 资料，参考文献,reference
 * [linkmap 源代码](https://github.com/lattera/glibc/blob/master/include/link.h#L85)
 * [standard stream buffering](http://www.pixelbeat.org/programming/stdio_buffering/)
 * [Awesome Windows Exploitation](https://github.com/enddo/awesome-windows-exploitation/blob/master/README.md)
+* [Java Reflect](http://www.cnblogs.com/hanxu/archive/2013/01/08/4618274.html)
