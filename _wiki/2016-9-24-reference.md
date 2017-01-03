@@ -25,3 +25,4 @@ keywords: 资料，参考文献,reference
 * [standard stream buffering](http://www.pixelbeat.org/programming/stdio_buffering/)
 * [Awesome Windows Exploitation](https://github.com/enddo/awesome-windows-exploitation/blob/master/README.md)
 * [Java Reflect](http://www.cnblogs.com/hanxu/archive/2013/01/08/4618274.html)
+* [Linux Overflow Vulnerability General Hardened Defense Technology、Grsecurity/PaX](http://www.cnblogs.com/LittleHann/p/4410271.html)
