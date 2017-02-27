@@ -26,4 +26,4 @@ keywords: 资料，参考文献,reference
 * [Awesome Windows Exploitation](https://github.com/enddo/awesome-windows-exploitation/blob/master/README.md)
 * [Java Reflect](http://www.cnblogs.com/hanxu/archive/2013/01/08/4618274.html)
 * [Linux Overflow Vulnerability General Hardened Defense Technology、Grsecurity/PaX](http://www.cnblogs.com/LittleHann/p/4410271.html)
-* [chroot jail break out](https://filippo.io/escaping-a-chroot-jail-slash-1/)
+* [chroot jail break out](https://github.com/earthquake/chw00t)
