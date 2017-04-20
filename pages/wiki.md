@@ -4,7 +4,7 @@ title: Wiki
 description: 
 keywords: 维基, Wiki
 comments: false
-menu: 维基
+menu: Wiki
 permalink: /wiki/
 ---
 

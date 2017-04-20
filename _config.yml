@@ -5,8 +5,8 @@ baseurl:
 url: http://a7um.github.io
 date_format: "ordinal"
 title: Atum
-subtitle: "To be a geeker and hacker"
-description: "Atum的个人博客"
+subtitle: "Hack and code for FUN!"
+description: "Atum's Blog'"
 keywords: Atum
 favicon: /favicon.ico
 timezone: Asia/Shanghai
@@ -29,23 +29,23 @@ email: lgcpku@gmail.com
 navs:
   -
     href: /
-    label: 首页
+    label: Main
 
   -
     href: /categories/
-    label: 分类
+    label: Categories
 
   -
     href: /wiki/
-    label: 维基
+    label: Wiki
 
   -
     href: /links/
-    label: 链接
+    label: Links
 
   -
     href: /about/
-    label: 关于
+    label: About
 
 # ---------------- #
 #       RSS        #

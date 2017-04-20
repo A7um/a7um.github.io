@@ -4,7 +4,7 @@ title: About
 description: 
 keywords: Atum
 comments: true
-menu: 关于
+menu: About
 permalink: /about/
 ---
 
