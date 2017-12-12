@@ -11,8 +11,9 @@ permalink: /about/
 ## About Me
 
 * Atum/A7um/47um/raatum
-* blue-lotus team, redbud team.
+* CTF Player from blue-lotus, Tea Deliverers
 * Peking University,China
+
 
 ## Contact
 
