@@ -125,11 +125,11 @@
 }
 .site-header-nav{
     float:right;
-    margin-bottom:-10px
+    margin-bottom:-8px
 }
 .site-header-nav-item{
     display:inline-block;
-    padding:6px 10px 10px;
+    padding:6px 10px 8px;
     margin-left:1.25rem;
     font-size:1rem;
     color:#777
@@ -144,7 +144,7 @@
 }
 .site-header-nav-item.selected{
     color:#333;
-    padding:6px 10px 8px;
+    padding:6px 10px 6px;
     border-bottom:2px solid #d26911
 }
 .site-header-nav-item+.btn-outline{
