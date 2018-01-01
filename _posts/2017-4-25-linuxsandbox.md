@@ -6,8 +6,6 @@ description: linux中的容器与沙箱初探
 keywords: Sandbox, Linux
 ---
 
-# linux中的容器与沙箱初探
-
 ## linux中的沙箱技术
 
 ### 文件系统隔离
