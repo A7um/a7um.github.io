@@ -6,8 +6,6 @@ description: 安恒杯武汉大学邀请赛AD模式的第二道pwn题，是一�
 keywords: fackfuzz, Writeup, 武汉大学邀请赛
 ---
 
-# 安恒杯武汉大学邀请赛fackfuzz Writeup
-
 [题目文件与exploit下载](https://github.com/A7um/CTF_exploits/tree/master/fackfuzz)
 
 ## 漏洞分析
