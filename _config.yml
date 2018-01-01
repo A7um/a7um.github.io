@@ -88,11 +88,12 @@ github_username: a7um
 # support provider: disqus, gitalk
 comments_provider: gitalk
 gitalk:
-    owner: mzlogin
+    owner: a7um
     repo: blog-comments
-    clientID: d2e1cbbd298958076462
-    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c37570
+    clientID: af22d9b13c936ebfba40
+    clientSecret: f4732d3258958bd798d6f218beb0bef3b56b386c
 #disqus_username: Atum
+lazy_load_disqus : false
 
 # ---------------- #
 #    Analytics     #
