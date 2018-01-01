@@ -6,8 +6,6 @@ description: pwnhub.cn 名字还在起 PWN题
 keywords: WEB, PWN, Writeup
 ---
 
-# pwnhub.cn 名字还在起 无题 Writeup
-
 当天晚上跟大佬们出去high了没做题目，结果第二天起床之后就发现一血二血都被大佬们拿走了，膜
 
 ## 题目分析
