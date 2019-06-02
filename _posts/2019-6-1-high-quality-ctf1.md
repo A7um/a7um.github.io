@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 怎样才能办好一场高质量的CTF比赛（一）
+title: 怎样才能办好一场高质量的CTF比赛——赛题篇
 categories: CTF
 description: 怎样才能办好一场高质量的CTF比赛系列的第一篇
 keywords: CTF,Chinese
