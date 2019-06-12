@@ -11,8 +11,10 @@ permalink: /about/
 ## About Me
 
 * Atum/A7um/47um/raatum
-* CTF Player from blue-lotus, Tea Deliverers
+* Former CTF Player of team blue-lotus and Tea Deliverers
+* Founder and Leader of team [Eur3kA](http://r3ka.eu/) and [r3kapig](https://r3kapig.com).
 * Peking University,China
+* Xuanwu Lab @ Tencent Security
 
 
 ## Contact
@@ -25,7 +27,7 @@ permalink: /about/
 ## Skill Keywords
 
 * Software and System Security
-* Adversarial Deep Learning
-* Python/C/C++
-* CTF
+* Reverse Engineering
+* Development
+
 
