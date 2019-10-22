@@ -20,7 +20,7 @@ permalink: /about/
 ## Contact
 
 * GitHub: https://github.com/a7um
-* Email: lgcpku@gmail.com or atum@pku.edu.cn
+* Email: lgcpku[AAAAAtttt]gmail[dot]com or atum[AAAAttttt]pku[dot]edu[dot]cn
 * Blog：[{{ site.title }}]({{ site.url }})
 
 
