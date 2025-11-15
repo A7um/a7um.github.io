@@ -164,10 +164,7 @@
 [一种基于安全大模型的EDR告警研判机器人](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
 #### 2.后量子密码迁移
 *   **分析量子计算威胁并研究应对方案，包括密码资产识别、供应链治理等**：[Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/agenda-2025?utm_source=%7C/bin/id&page=2?utm_source=%7C/bin/id&utm_medium=null&utm_campaign=null&utm_content=null)
-
-#### 3. 利用硬件特性辅助安全类任务
+#### 3. 利用硬件特性辅助代码分析类任务
 * **利用 Intel Processor Trace 辅助绕过反调试**：[S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
-
 * **基于 Intel Processor Trace 的高效多核执行流记录与重放**：[CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)
-
 * **封装 Intel CPU 的硬件追踪技术，为逆向工程师提供高效且易用的程序执行流追踪与分析工具**：[Black Hat USA 2024 Arsenal: LIBIHT — A Cross-Platform Library for Accessing Intel Hardware Trace Features](https://dl.acm.org/doi/10.1145/3372297.3420021) && [SURE 2025: LibIHT — A Hardware-Based Approach to Efficient and Evasion-Resistant Dynamic Binary Analysis](https://sure-workshop.org/accepted-papers/2025/sure25-3.pdf)
