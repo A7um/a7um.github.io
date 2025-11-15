@@ -121,7 +121,7 @@ My current work encompasses two aspects:
 * **Model Intrinsic Security**: Focusing on potential vulnerabilities arising from model structure, weights, and the training process itself.
 * **Model Ecosystem Security**: Researching traditional security risks in the integration, invocation, and deployment of large language models.
 
-My team and I have already achieved results in this direction and will continue to invest in exploring more systematic model security protection methods.
+My team and I have already achieved results in this direction and will continue to invest in exploring more llm model security issues and it's mitigations.
 
 ### 3. Post-Quantum Cryptography and Migration
 
