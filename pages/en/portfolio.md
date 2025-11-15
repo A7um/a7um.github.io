@@ -146,14 +146,25 @@ Beyond attempts in vulnerability discovery, my team and I are also committed to 
 I focus on new security issues emerging in the AI era and explore them from an attacker's perspective:
 *   **A Method to Precisely Control LLM Output for Arbitrary Content**: [Black Hat USA 2025, Universal and Context-Independent Triggers for Precise Control of LLM Outputs](https://blackhat.com/us-25/briefings/schedule/#universal-and-context-independent-triggers-for-precise-control-of-llm-outputs-45099)
 *   **Traditional Security Risks Introduced by AI's Web Browsing Capabilities**: [Black Hat EU 2025, AI's 'Web Browsing' Into A Gateway For Targeting 1B+ Users](https://blackhat.com/eu-25/briefings/schedule/index.html#ai-searchs-dark-side-how-we-turned-ais-web-browsing-into-a-gateway-for-targeting-1b-users-49085)
+*   **Human-Invisible Prompt Injection Using ICC Profiles**: [CCS 2025 Poster/Demo, Black-box Attacks on Multimodal Large Language Models through Adversarial ICC Profiles]()
 
 #### 3. Software & Supply Chain Security
 *   **How Chromium N-day Vulnerabilities Can Produce 0-day Attack Effects in Environments Like Electron**: [DEFCON 31, ndays are also 0days: Can hackers launch 0day RCE attack on popular software only with chromium ndays?](https://forum.defcon.org/node/246107)
 *   **Assessment Framework for xz-type High-Stealth Backdoor Risks**: [AAAI 2026, An LLM-based Quantitative Framework for Evaluating High-Stealthy Backdoor Risks in OSS Supply Chains]()
 
 ### 2. Solution Development
-
+#### 1. LLM Applications in Security
 *   **LLM-based Security Intelligence System**: AI-driven automatic search, subscription, and analysis of security technical intelligence. Typical applications include tracking the latest advances in security technology for security research, and tracking the latest black/gray market attack methods in business security scenarios. This system powers [Xuanwu Sectoday](https://sectoday.tencent.com/) and [Tencent's Post-Quantum Cryptography Portal](https://sectoday.tencent.com/).
-*   **LLM-based Intelligent Semantic Search Library to Improve Vulnerability Discovery and Code Audit Efficiency**: [Github](https://github.com/XuanwuAI/CodeRetrX),[Paper]()
-*   **EDR Alert Analysis Robot Based on Security LLM, Achieving Automated Analysis and Classification of Massive Alerts**: [An EDR Alert Analysis Robot Based on Security LLM](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
+*   **LLM-based Intelligent Semantic Search Library to Improve Vulnerability Discovery and Code Audit Efficiency**:
+[Github](https://github.com/XuanwuAI/CodeRetrX),[Paper]()
+*   **EDR Alert Analysis Robot Based on Security LLM, Achieving Automated Analysis and Classification of Massive Alerts**:
+[An EDR Alert Analysis Robot Based on Security LLM](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
+#### 2. Post-Quantum Cryptography Migration
 *   **Analyzing Quantum Computing Threats and Researching Response Solutions, Including Cryptographic Asset Identification and Supply Chain Governance**: [Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/agenda-2025?utm_source=%7C/bin/id&page=2?utm_source=%7C/bin/id&utm_medium=null&utm_campaign=null&utm_content=null)
+
+#### 3. Using Hardware Features for Security Tasks
+* **Using Intel Processor Trace to Bypass Anti-debugging**: [S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
+
+* **Efficient Multi-core Execution Flow Recording and Replay Based on Intel Processor Trace**: [CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)
+
+* **Encapsulating Intel CPU Hardware Tracing Technology to Provide Efficient and User-friendly Program Execution Flow Tracing and Analysis Tools for Reverse Engineers**: [Black Hat USA 2024 Arsenal: LIBIHT — A Cross-Platform Library for Accessing Intel Hardware Trace Features](https://dl.acm.org/doi/10.1145/3372297.3420021) && [SURE 2025: LibIHT — A Hardware-Based Approach to Efficient and Evasion-Resistant Dynamic Binary Analysis](https://sure-workshop.org/accepted-papers/2025/sure25-3.pdf)
