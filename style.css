@@ -1,0 +1,711 @@
+/* Terminal/tmux-style theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+    overflow: hidden;
+    height: 100vh;
+}
+
+.terminal-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* tmux-style status bar */
+.status-bar {
+    background-color: #5f8700;
+    color: #000000;
+    min-height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: bold;
+    user-select: none;
+    flex-wrap: nowrap;
+}
+
+.status-left {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.status-center {
+    display: flex;
+    align-items: center;
+    flex-shrink: 1;
+    margin: 0 8px;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 8px;
+}
+
+.tmux-windows {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    overflow: hidden;
+}
+
+.window {
+    padding: 0 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.window:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.window.active {
+    background-color: #000000;
+    color: #5f8700;
+}
+
+.session-info {
+    font-size: 14px;
+}
+
+/* Language switcher styles */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.lang-option {
+    cursor: pointer;
+    padding: 0 3px;
+    transition: color 0.2s;
+    color: #000000;
+}
+
+.lang-option:hover {
+    color: #ffffff;
+}
+
+.lang-option.active {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.lang-separator {
+    color: #000000;
+    margin: 0 2px;
+}
+
+/* Main content area */
+.main-content {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+}
+
+.prompt-line {
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+.prompt {
+    color: #569cd6;
+    font-weight: bold;
+}
+
+.command {
+    color: #ce9178;
+}
+
+#content-area {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Blog listing styles */
+.blog-entry {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 16px;
+}
+
+.blog-header {
+    color: #dcdcaa;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.blog-header:hover {
+    color: #4ec9b0;
+}
+
+.blog-meta {
+    color: #6a9955;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.blog-abstract {
+    color: #d4d4d4;
+    margin-left: 16px;
+}
+
+.tag {
+    color: #4fc1ff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.tag a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.tag:hover {
+    color: #9cdcfe;
+}
+
+.tag:hover a {
+    color: inherit;
+}
+
+/* Tag filter container styles */
+.tag-filter-container {
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.8;
+}
+
+.filter-tag {
+    display: inline-block;
+    color: #4fc1ff;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    user-select: none;
+    position: relative;
+}
+
+.filter-tag:hover {
+    color: #9cdcfe;
+}
+
+.filter-tag.active {
+    color: #dcdcaa;
+    font-weight: bold;
+}
+
+.filter-tag.active::before {
+    content: '> ';
+    color: #569cd6;
+}
+
+/* Content rendering styles */
+.content-display h1, .content-display h2, .content-display h3 {
+    color: #dcdcaa;
+    margin: 16px 0 8px 0;
+}
+
+.content-display p {
+    margin-bottom: 12px;
+}
+
+.content-display code {
+    background-color: #2d2d30;
+    padding: 2px 4px;
+    border-radius: 3px;
+    color: #ce9178;
+}
+
+.content-display pre {
+    background-color: #2d2d30;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 12px 0;
+    overflow-x: auto;
+}
+
+.content-display blockquote {
+    border-left: 4px solid #6a9955;
+    padding-left: 12px;
+    margin: 12px 0;
+    color: #6a9955;
+}
+
+.content-display ul, .content-display ol {
+    margin-left: 20px;
+    margin-bottom: 12px;
+}
+
+.content-display a {
+    color: #4fc1ff;
+    text-decoration: none;
+}
+
+.content-display a:hover {
+    text-decoration: underline;
+}
+
+/* Image optimization styles */
+.content-display img {
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.content-display img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* Support for inline width attributes */
+.content-display img[width] {
+    width: auto;
+}
+
+/* Center tag support for images */
+.content-display center {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.content-display center img {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.content-display center + center {
+    margin-top: 8px;
+}
+
+/* Image container for better layout control */
+.image-container {
+    text-align: center;
+    margin: 24px 0;
+    padding: 0 16px;
+}
+
+.image-caption {
+    color: #6a9955;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Responsive image sizes */
+.image-small {
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.image-medium {
+    max-width: 100%;
+    max-height: 500px;
+}
+
+.image-large {
+    max-width: 100%;
+    max-height: 70vh;
+}
+
+/* Terminal-themed image frame */
+.terminal-image {
+    background-color: #2d2d30;
+    padding: 16px;
+    border-radius: 6px;
+    border: 1px solid #404040;
+    margin: 20px auto;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.terminal-image img {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 2px;
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+}
+
+/* Image loading states */
+.image-loading {
+    background-color: #2d2d30;
+    border-radius: 4px;
+    position: relative;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6a9955;
+    margin: 20px auto;
+}
+
+.image-loading::before {
+    content: "Loading image...";
+    font-size: 16px;
+}
+
+.image-error {
+    background-color: #3c1f1f;
+    border: 1px solid #6b2c2c;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 20px auto;
+    text-align: center;
+    color: #f48771;
+    font-size: 16px;
+}
+
+/* Image gallery styles for multiple images */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+}
+
+.image-gallery img {
+    margin: 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Lightbox styles */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    transform: none;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: #ccc;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .status-bar {
+        font-size: 12px;
+        padding: 0 6px;
+        min-height: 28px;
+    }
+    
+    .status-right {
+        gap: 6px;
+    }
+    
+    .tmux-windows {
+        gap: 1px;
+    }
+    
+    .window {
+        padding: 0 3px;
+        font-size: 12px;
+    }
+    
+    .language-switcher {
+        font-size: 12px;
+    }
+    
+    .main-content {
+        padding: 12px;
+    }
+    
+    .prompt-line, #content-area {
+        font-size: 15px;
+    }
+    
+    /* Mobile image optimizations */
+    .content-display img {
+        margin: 16px auto;
+        max-width: 100%;
+        max-height: 60vh;
+    }
+    
+    .image-container {
+        padding: 0 8px;
+        margin: 16px 0;
+    }
+    
+    .terminal-image {
+        padding: 12px;
+        margin: 16px 0;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 12px;
+        margin: 16px 0;
+    }
+    
+    .image-gallery img {
+        height: 150px;
+    }
+    
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+        font-size: 28px;
+    }
+}
+
+/* Tablet and small desktop */
+@media (max-width: 600px) {
+    .status-center {
+        display: none;
+    }
+    
+    .status-left {
+        flex: 1;
+    }
+    
+    .status-right {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-bar {
+        font-size: 11px;
+        padding: 0 4px;
+        min-height: 32px;
+    }
+    
+    .window {
+        padding: 0 2px;
+        font-size: 11px;
+    }
+    
+    .window a {
+        display: inline-block;
+        min-height: 28px;
+        line-height: 28px;
+    }
+    
+    .language-switcher {
+        font-size: 11px;
+    }
+    
+    .lang-option a {
+        display: inline-block;
+        min-height: 28px;
+        line-height: 28px;
+        padding: 0 2px;
+    }
+    
+    #current-time {
+        font-size: 10px;
+    }
+    
+    .main-content {
+        padding: 8px;
+    }
+    
+    .prompt-line, #content-area {
+        font-size: 14px;
+    }
+    
+    /* Small mobile image optimizations */
+    .content-display img {
+        margin: 12px auto;
+        max-width: 100%;
+        max-height: 50vh;
+    }
+    
+    .image-container {
+        padding: 0 4px;
+        margin: 12px 0;
+    }
+    
+    .terminal-image {
+        padding: 8px;
+        margin: 12px 0;
+    }
+    
+    .image-gallery {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin: 12px 0;
+    }
+    
+    .image-gallery img {
+        height: 120px;
+    }
+    
+    .lightbox-close {
+        top: 5px;
+        right: 10px;
+        font-size: 24px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 375px) {
+    .status-bar {
+        font-size: 10px;
+        padding: 0 3px;
+    }
+    
+    .window {
+        font-size: 10px;
+        padding: 0 1px;
+    }
+    
+    .language-switcher {
+        font-size: 10px;
+    }
+    
+    #current-time {
+        font-size: 9px;
+    }
+    
+    .status-right {
+        gap: 3px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .status-bar {
+        font-size: 9px;
+        padding: 0 2px;
+        flex-wrap: wrap;
+        min-height: auto;
+    }
+    
+    .status-left {
+        order: 1;
+        width: 100%;
+        margin-bottom: 2px;
+    }
+    
+    .status-right {
+        order: 2;
+        width: 100%;
+        justify-content: space-between;
+        gap: 2px;
+    }
+    
+    .window {
+        font-size: 9px;
+    }
+    
+    .language-switcher {
+        font-size: 9px;
+    }
+    
+    #current-time {
+        font-size: 8px;
+    }
+}
+
+/* Animation for content switching */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Shell command navigation */
+.shell-command {
+    color: #569cd6;
+    cursor: pointer;
+    margin-bottom: 16px;
+    display: inline-block;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 16px;
+}
+
+.shell-command:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2px 4px;
+    margin: -2px -4px;
+    border-radius: 2px;
+}
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid #3a3a3a;
+    text-align: center;
+    color: #808080;
+    font-size: 14px;
+}
+
+.footer p {
+    margin: 0;
+    padding: 10px 0;
+}

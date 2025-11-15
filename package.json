@@ -1,0 +1,26 @@
+{
+  "name": "atumblog",
+  "version": "1.0.0",
+  "description": "Personal blog website",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "build-static": "node scripts/generate-static-site.js",
+    "generate-manifest": "node scripts/generate-manifest.js",
+    "serve": "python3 -m http.server 8000",
+    "serve-dist": "python3 -m http.server 8000 --directory dist"
+  },
+  "author": "Atum",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "feed": "^4.2.2",
+    "highlight.js": "^11.9.0",
+    "js-yaml": "^4.1.0",
+    "marked": "^11.0.0",
+    "marked-highlight": "^2.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.19.0"
+  }
+}

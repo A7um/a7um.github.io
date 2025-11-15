@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="{{LANG}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <link rel="canonical" href="{{CANONICAL_URL}}">
+    <link rel="alternate" hreflang="en" href="{{EN_URL}}">
+    <link rel="alternate" hreflang="zh" href="{{CN_URL}}">
+    <meta property="og:title" content="{{TITLE}}">
+    <meta property="og:description" content="{{META_DESCRIPTION}}">
+    <meta property="og:type" content="{{OG_TYPE}}">
+    <meta property="og:url" content="{{CANONICAL_URL}}">
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed ({{LANG_NAME}})" href="/rss-{{LANG}}.xml">
+    <link rel="stylesheet" href="/style.css">
+    {{EXTRA_HEAD}}
+</head>
+<body>
+    <div class="terminal-container">
+        <!-- tmux-style status bar -->
+        <div class="status-bar">
+            <div class="status-left">
+                <div class="tmux-windows">
+                    <span class="window {{BLOGS_ACTIVE}}" data-tab="blogs">
+                        <a href="/{{LANG}}/" style="color: inherit; text-decoration: none;">[0:blogs{{BLOGS_INDICATOR}}]</a>
+                    </span>
+                    <span class="window {{PORTFOLIO_ACTIVE}}" data-tab="portfolio">
+                        <a href="/{{LANG}}/portfolio/" style="color: inherit; text-decoration: none;">[1:portfolio{{PORTFOLIO_INDICATOR}}]</a>
+                    </span>
+                    <span class="window {{ABOUT_ACTIVE}}" data-tab="about">
+                        <a href="/{{LANG}}/about/" style="color: inherit; text-decoration: none;">[2:about{{ABOUT_INDICATOR}}]</a>
+                    </span>
+                </div>
+            </div>
+            <div class="status-center">
+                <span class="session-info">atum@Tencent</span>
+            </div>
+            <div class="status-right">
+                <span class="language-switcher">
+                    <span class="lang-option {{EN_LANG_ACTIVE}}" data-lang="en">
+                        <a href="{{EN_URL}}" style="color: inherit; text-decoration: none;">EN</a>
+                    </span>
+                    <span class="lang-separator">|</span>
+                    <span class="lang-option {{CN_LANG_ACTIVE}}" data-lang="zh">
+                        <a href="{{CN_URL}}" style="color: inherit; text-decoration: none;">中文</a>
+                    </span>
+                </span>
+                <span class="time" id="current-time"></span>
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="main-content">
+            <div id="content-area">
+                {{CONTENT}}
+            </div>
+            
+            <!-- Copyright footer -->
+            <div class="footer">
+                <p>© 2019-2025 Atum. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: false 
+            });
+            const dateStr = now.toLocaleDateString('en-US', { 
+                month: 'short', 
+                day: '2-digit' 
+            });
+            const elem = document.getElementById('current-time');
+            if (elem) {
+                elem.textContent = `${dateStr} ${timeStr}`;
+            }
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+    {{EXTRA_SCRIPTS}}
+</body>
+</html>
