@@ -1,6 +1,6 @@
 # About Me
 
-Hello, I'm Guancheng Li (aka. Atum), currently serving as a Security Researcher and Leader of the Fundamental Security Research Group at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
+Hello, I'm Atum, currently serving as a Researcher at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
 
 My technical research career began with CTF (Capture The Flag) competitions. I was an early member of the [Blue-Lotus](https://ctftime.org/team/1941/) team, and later co-founded the [r3kapig](https://ctftime.org/team/58979) team with friends, serving as its first captain. We qualified for the [DEFCON CTF](https://ctftime.org/ctf/2/) finals for multiple consecutive years. This experience laid a solid foundation for my technical research.
 

@@ -1,7 +1,7 @@
 
 # 关于我
 
-你好，我是李冠成(aka. Atum)，现在[腾讯玄武实验室](https://xlab.tencent.com/)的担任安全研究员和基础安全研究组Leader。[我相信技术的底层逻辑是相通的,并追求成为一名全栈技术人员](/cn/blog/why-and-how-to-be-full-stack/)。掌握较为全面的技术栈，不仅能为我提供跨领域的视角，还能让我在设计解决方案时拥有更广阔的思路，在漏洞挖掘时洞察更深层次的问题。
+你好，我是Atum，现在[腾讯玄武实验室](https://xlab.tencent.com/)的担任研究员。[我相信技术的底层逻辑是相通的,并追求成为一名全栈技术人员](/cn/blog/why-and-how-to-be-full-stack/)。掌握较为全面的技术栈，不仅能为我提供跨领域的视角，还能让我在设计解决方案时拥有更广阔的思路，在漏洞挖掘时洞察更深层次的问题。
 
 我的技术研究生涯始于CTF（Capture The Flag）竞赛。早期作为 [Blue-Lotus](https://ctftime.org/team/1941/) 战队成员，后来与朋友们共同创立 [r3kapig](https://ctftime.org/team/58979) 战队并担任首任队长。我们曾连续多年打入 [DEFCON CTF](https://ctftime.org/ctf/2/) 决赛。这段经历为我的技术研究奠定了坚实的基础。
 
