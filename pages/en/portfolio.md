@@ -134,7 +134,7 @@ Beyond attempts in vulnerability discovery, my team and I are also committed to 
 
 ## Public Representative Work
 
- Given the special nature of the security field, some work cannot be publicly disclosed. Here I list only selected representative public research achievements.
+Owing to the commercially sensitive nature of certain projects undertaken for my employer, a comprehensive list of my work cannot be provided. The following is a list of my published contributions.
 
 ### 1. Vulnerability and Attack/Defense Research
 
