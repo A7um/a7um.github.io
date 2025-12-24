@@ -86,3 +86,28 @@ Beyond technology, my greatest interest is reading. I view it as an effective wa
 
 * Email: lgcpku[AT]gmail.com
 * GitHub: https://github.com/a7um
+---
+
+## My Research Directions
+
+My research interests focus on security problems that are **wide-impact, high-severity, and systemic** in nature. I aim to tackle these problems with innovative approaches that can raise the overall security baseline. For a list of my public research outputs, please refer to my [portfolio page](/en/portfolio.md).
+
+Currently, my main areas of focus include:
+
+### 1. AI Security
+
+As large language models become a new layer of digital infrastructure, I pay special attention to core security issues that combine low attack cost with potentially large impact, and explore corresponding defenses. My research includes:
+
+* **Model intrinsic security**: structural vulnerabilities introduced by model architectures, weights, or training pipelines. For example, at [Black Hat USA we presented a new attack that can precisely control LLM outputs](https://blackhat.com/us-25/briefings/schedule/#universal-and-context-independent-triggers-for-precise-control-of-llm-outputs-45099).
+* **Model ecosystem security**: traditional security risks in the integration, invocation, and deployment of large models. For instance, at [Black Hat Europe we revealed how LLM "web browsing" features can lead to server-side RCE risks due to embedded browser components](https://blackhat.com/eu-25/briefings/schedule/index.html#ai-searchs-dark-side-how-we-turned-ais-web-browsing-into-a-gateway-for-targeting-1b-users-49085).
+
+My team and I will continue to work on long-term security challenges in the era of foundation models.
+
+### 2. Using AI to Automatically Discover Vulnerabilities and Backdoors
+
+The discovery of high-value vulnerabilities has traditionally depended on large amounts of human effort. I have been long interested in how to use AI to improve the automation and intelligence of this process. Our current systems have automatically discovered **50+ high-value vulnerabilities** in widely used open-source software, more than half of which have substantial real-world impact (such as server-side RCE or private-key recovery in cryptographic algorithms). Overall, their capabilities are approaching those of mid-level human experts.  
+In parallel, I am actively exploring automated detection of software backdoors and hope to make breakthroughs in this direction in the future.
+
+### 3. Quantum Computing Threats and Post-Quantum Migration
+
+Quantum computing may structurally undermine today's cryptographic systems. Post-quantum migration is a system-wide engineering effort that spans cryptographic asset discovery, supply-chain governance, and engineering practices such as crypto-agility and hybrid encryption. Together with my team, I work on designing practical migration strategies and driving the engineering adoption of post-quantum technologies in real-world environments.

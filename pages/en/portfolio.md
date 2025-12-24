@@ -93,45 +93,6 @@
 
 </div>
 
-## Current Main Research Interests
-
-As an aspiring full‑stack engineer, I enjoy exploring a wide range of technologies, especially in the field of security. The following reflects both my personal interests and part of my daily work.
-
-### 1. Automated Discovery of High-Value Vulnerabilities
-
-The discovery of high-value vulnerabilities has always been labor-intensive. Exploring how to make vulnerability discovery more automated and efficient is one of my longest-standing and most passionate research directions.
-
-Before the emergence of large language models, I primarily drew inspiration from software engineering approaches:
-* **Modularization of Vulnerability Discovery Capabilities**: Breaking down key capabilities such as code analysis, behavior analysis, and fuzzing into reusable modules, transforming vulnerability discovery into an engineering orchestration task.
-* **Modularization of Fuzzing Workflows**: Modularizing components like seed selection, program initialization, data input, and feedback tracking to enable quick launch of fuzzing of new targets. The philosophy is similar to LibAFL, but with a higher level of abstraction.
-
-While these attempts improved automation, they incurred high engineering development and maintenance costs and differed significantly from researchers' manual discovery habits, making them less than successful.
-
-After the advent of large language models, I experimented with fine-tuning security models for vulnerability discovery, but the limited model capabilities made breakthroughs difficult. Over the past year, as LLMs' code understanding and agent capabilities have improved, my team and I have begun using **Agentic methods** to automatically discover high-value vulnerabilities.
-
-This approach has yielded practical results: our system has discovered dozens of high-value vulnerabilities, many involving complex logic, with overall performance approaching that of mid-level human experts. We will continue to deepen our research in this direction.
-
-### 2. LLM Security Research
-
-As large language models became core technological infrastructure of digital world, their security research are still in early stages. Current research mostly focuses on visible risks like jailbreaking, prompt injection, and data poisoning.
-
-My focus is on deeper, more hidden model-level security issues with **potentially more severe impacts and lower attack costs**—risks similar to "Remote Code Execution (RCE)" level vulnerabilities in traditional software.
-
-My current work encompasses two aspects:
-* **Model Intrinsic Security**: Focusing on potential vulnerabilities arising from model structure, weights, and the training process itself.
-* **Model Ecosystem Security**: Researching traditional security risks in the integration, invocation, and deployment of large language models.
-
-My team and I have already achieved results in this direction and will continue to invest in exploring more llm model security issues and it's mitigations.
-
-### 3. Post-Quantum Cryptography and Migration
-
-The industry widely believes that quantum computing will be able to break classical cryptographic algorithms around 2035. Post-quantum migration is not just an algorithm replacement problem, but a complex systems engineering challenge with a series of technical hurdles, such as: cryptographic asset discovery, supply chain governance, and new engineering practices (such as crypto-agility and hybrid encryption). My focus in this direction is working with my team to design and develop solutions to address post-quantum migration challenges and promote the industrialized implementation of post-quantum migration, preparing for security in the post-quantum era.
-
-### 4. LLM Applications in Security
-Beyond attempts in vulnerability discovery, my team and I are also committed to designing and developing LLM solutions for other security tasks, including supply chain governance, intelligence collection and analysis, security knowledge engineering, security data mining, and alert noise reduction. Some of these solutions have been deployed in production.
-
----
-
 ## Public Representative Work
 
 Owing to the commercially sensitive nature of certain projects undertaken for my employer, a comprehensive list of my work cannot be provided. The following is a list of my published contributions.
