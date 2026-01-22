@@ -1,6 +1,8 @@
 ## 关于我
 
-你好，我是Atum，现在[腾讯玄武实验室](https://xlab.tencent.com/)的担任研究员。[我相信技术的底层逻辑是相通的,并追求成为一名全栈技术人员](/cn/blog/why-and-how-to-be-full-stack/)。掌握较为全面的技术栈，不仅能为我提供跨领域的视角，还能让我在设计解决方案时拥有更广阔的思路，在漏洞挖掘时洞察更深层次的问题。
+你好，我是Atum，一名研究员、AI安全专家和AI爱好者，现在[腾讯玄武实验室](https://xlab.tencent.com/)的担任研究员。[我相信技术的底层逻辑是相通的,并追求成为一名全栈技术人员](/cn/blog/why-and-how-to-be-full-stack/)。掌握较为全面的技术栈，不仅能为我提供跨领域的视角，还能让我在设计解决方案时拥有更广阔的思路，在漏洞挖掘时洞察更深层次的问题。
+
+我相信AI最终会极大地改变人类的生产和生活方式，并相信AGI终将到来。因此，我一直积极跟进AI的最新发展，并持续探索AI的新用法，将其集成到日常生活和工作中。
 
 我的技术研究生涯始于CTF（Capture The Flag）竞赛。早期作为 [Blue-Lotus](https://ctftime.org/team/1941/) 战队成员，后来与朋友们共同创立 [r3kapig](https://ctftime.org/team/58979) 战队并担任首任队长。我们曾连续多年打入 [DEFCON CTF](https://ctftime.org/ctf/2/) 决赛。这段经历为我的技术研究奠定了坚实的基础。
 
@@ -81,6 +83,30 @@
     border-radius: 0.6em;
     font-size: 0.9em;
   ">不爱写论文</span>
+
+  <span style="
+    background: #263238;
+    color: #eceff1;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">研究员</span>
+
+  <span style="
+    background: #e0f2f1;
+    color: #00695c;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">AI安全专家</span>
+
+  <span style="
+    background: #ede7f6;
+    color: #5e35b1;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">AI爱好者</span>
 </div>
 
 ## Links
@@ -110,4 +136,3 @@
 
 ### **三、量子计算威胁与后量子迁移**
 量子计算未来可能在结构上破坏现有密码体系。后量子迁移是一项覆盖资产识别、供应链治理、工程实践（如密码敏捷性、混合加密）的系统工程。我与团队致力于设计可落地的迁移方案，推动后量子技术在真实场景中的工程化实施。
-

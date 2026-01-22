@@ -1,6 +1,8 @@
 # About Me
 
-Hello, I'm Atum, currently serving as a Researcher at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
+Hello, I'm Atum, a researcher, AI security expert, and AI enthusiast, currently serving as a Researcher at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
+
+I firmly believe that AI will ultimately transform the way humans work and live, and that AGI will eventually arrive. Therefore, I actively follow the latest developments in AI and continuously explore new applications, integrating them into my daily life and work.
 
 My technical research career began with CTF (Capture The Flag) competitions. I was an early member of the [Blue-Lotus](https://ctftime.org/team/1941/) team, and later co-founded the [r3kapig](https://ctftime.org/team/58979) team with friends, serving as its first captain. We qualified for the [DEFCON CTF](https://ctftime.org/ctf/2/) finals for multiple consecutive years. This experience laid a solid foundation for my technical research.
 
@@ -80,6 +82,30 @@ Beyond technology, my greatest interest is reading. I view it as an effective wa
     border-radius: 0.6em;
     font-size: 0.9em;
   ">Not Fond of Writing Papers</span>
+
+  <span style="
+    background: #263238;
+    color: #eceff1;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">Researcher</span>
+
+  <span style="
+    background: #e0f2f1;
+    color: #00695c;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">AI Security Expert</span>
+
+  <span style="
+    background: #ede7f6;
+    color: #5e35b1;
+    padding: 0.25em 0.75em;
+    border-radius: 0.6em;
+    font-size: 0.9em;
+  ">AI Enthusiast</span>
 </div>
 
 ## Links
