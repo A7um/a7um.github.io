@@ -1,7 +1,7 @@
 ---
 title: "Automated Vulnerability Discovery: Past, Present and Future — Where Are the Limits of AI?"
 date: 2026-01-22
-tags: [security-research, AI, vulnerability-discovery]
+tags: [software-security, vulnerability]
 abstract: >
   By 2025, our systems had automatically uncovered more than 60 real-world vulnerabilities. Half of them are high-risk vulnerabilities. Looking back, we found that **our success came not from a single technical breakthrough, but from correctly tracking paradigm shifts in AI and adapting our methods at each transition**. At the same time, we observed many top-tier papers gradually losing real-world impact as they failed to adapt to those shifts. This article is our attempt to make that pattern explicit: we trace three paradigm transitions in automated vulnerability discovery from 2022 to 2025—moving from "LLMs as classifiers" to "LLMs augmenting fuzzers and static analyzers" to "agentic, tool-using auditors"—and discuss how understanding these shifts can help you make research and engineering bets that survive across paradigms.
 ---
