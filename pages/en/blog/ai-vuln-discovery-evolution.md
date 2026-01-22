@@ -36,7 +36,7 @@ But fuzzing has sharp limitations:
 
 - At its core, it is **syntactic brute‑force search**. For inputs that must satisfy complex constraints—checksums, cryptographic signatures, multi‑stage protocol state machines—mutation strategies tend to get trapped in local optima. Even when you mix in symbolic execution, path explosion remains a hard barrier.
 - More fundamentally, fuzzing relies on **observable abnormal signals**—crashes, OOMs, ASan violations—to flag potential vulnerabilities. For issues that do not manifest as crashes, fuzzing is nearly blind. Missing permission checks and business‑logic flaws look like “normal execution” at runtime. You can try to design custom oracles and adapters to transform such vulnerabilities into fuzzer‑detectable signals, but doing that per vulnerability type does not scale.
-- As mitigations such as CFI, RFG, MTE, and PAC proliferate, the offense/defense balance also shifts. MTE shrinks the window for exploiting heap overflows; CFI blocks classic control‑flow hijacks; PAC makes ROP chaining significantly more expensive. Many crashes, even when found, can no longer be turned into practical exploits. The gap from crash to exploit keeps widening.
+- As mitigations such as CFI, RFG, MTE, and PAC proliferate, the offense/defense balance also shifts. MTE shrinks the window for exploiting heap overflows; CFI blocks classic control‑flow hijacks; PAC makes pointer hijacking significantly more expensive. Many crashes, even when found, can no longer be turned into practical exploits. The gap from crash to exploit keeps widening.
 
 ### Taint Analysis: Strong Within Rules, Trapped by Rule Boundaries
 
@@ -361,7 +361,7 @@ As base models converge in capability, how large can the gap between two agents 
 
 Large—**as large as the gap between a human and a dog.**
 
-With the same Claude 4.5, a poorly designed agent might choke on anything larger than a toy project, while Cursor has shown that a carefully orchestrated system can run for over 10 weeks and build a one‑million‑line browser from scratch. The difference is not the model; it is orchestration.
+With the same Claude 4.5, a poorly designed agent might choke on anything larger than a toy project, while Cursor has shown that a carefully orchestrated system can run for over 1 weeks and build a one‑million‑line browser from scratch. The difference is not the model; it is orchestration.
 
 Questions that now dominate:
 
