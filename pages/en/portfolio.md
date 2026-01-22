@@ -116,12 +116,12 @@ I focus on new security issues emerging in the AI era and explore them from an a
 ### 2. Solution Development
 #### 1. LLM Applications in Security
 *   **LLM-based Security Intelligence System**: AI-driven automatic search, subscription, and analysis of security technical intelligence. Typical applications include tracking the latest advances in security technology for security research, and tracking the latest black/gray market attack methods in business security scenarios. This system powers [Xuanwu Sectoday](https://sectoday.tencent.com/) and [Tencent's Post-Quantum Cryptography Portal](https://sectoday.tencent.com/).
-*   **LLM-based Intelligent Semantic Search Library to Improve Vulnerability Discovery and Code Audit Efficiency**:
-[Github](https://github.com/XuanwuAI/CodeRetrX),[Paper]()
+*   **LLM-based Intelligent Semantic Search Library to Improve Vulnerability Discovery and Code Audit Efficiency**: [Black Hat Asia 2026 Arsenal, CodeRetrX: One-Click to Start Your Journey of Agentic Bug Hunting](https://blackhat.com/asia-26/arsenal/schedule/index.html#coderetrx-one-click-to-start-your-journey-of-agentic-bug-hunting-50342)
+    [Github](https://github.com/XuanwuAI/CodeRetrX), [Paper]()
 *   **EDR Alert Analysis Robot Based on Security LLM, Achieving Automated Analysis and Classification of Massive Alerts**:
 [An EDR Alert Analysis Robot Based on Security LLM](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
 #### 2. Post-Quantum Cryptography Migration
-*   **Analyzing Quantum Computing Threats and Researching Response Solutions, Including Cryptographic Asset Identification and Supply Chain Governance**: [Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/agenda-2025?utm_source=%7C/bin/id&page=2?utm_source=%7C/bin/id&utm_medium=null&utm_campaign=null&utm_content=null)
+*   **Analyzing Quantum Computing Threats and Researching Response Solutions, Including Cryptographic Asset Identification and Supply Chain Governance**: [Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/speaker/guancheng-li)
 #### 3. Using Hardware Features for Code Analysis Tasks
 * **Using Intel Processor Trace to Bypass Anti-debugging**: [S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
 * **Efficient Multi-core Execution Flow Recording and Replay Based on Intel Processor Trace**: [CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)

@@ -118,12 +118,12 @@
 ### 二、解决方案研发
 #### 1. 大模型在安全方向的应用
 *   **基于大模型的安全情报系统**: 基于AI实现安全技术情报的自动搜寻、订阅和分析，典型用途包括在安全研究中跟踪安全技术的最新进展，在业务安全场景中跟踪最新的黑灰产攻击手法等，该系统驱动了[玄武Sectoday](https://sectoday.tencent.com/)，[腾讯后量子主题站](https://sectoday.tencent.com/)。
-*   **基于LLM的智能语义检索库，以提升漏洞挖掘和代码审计效率**：
-[Github](https://github.com/XuanwuAI/CodeRetrX),[Paper]()
+*   **基于LLM的智能语义检索库，以提升漏洞挖掘和代码审计效率**[Black Hat Asia 2026 Arsenal,CodeRetrX: One-Click to Start Your Journey of Agentic Bug Hunting](https://blackhat.com/asia-26/arsenal/schedule/index.html#coderetrx-one-click-to-start-your-journey-of-agentic-bug-hunting-50342)
+ [Github](https://github.com/XuanwuAI/CodeRetrX),[Paper]()
 *   **基于安全大模型的EDR告警研判机器人，实现海量告警的自动化分析与定性**：
 [一种基于安全大模型的EDR告警研判机器人](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
 #### 2.后量子密码迁移
-*   **分析量子计算威胁并研究应对方案，包括密码资产识别、供应链治理等**：[Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/agenda-2025?utm_source=%7C/bin/id&page=2?utm_source=%7C/bin/id&utm_medium=null&utm_campaign=null&utm_content=null)
+*   **分析量子计算威胁并研究应对方案，包括密码资产识别、供应链治理等**：[Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/speaker/guancheng-li)
 #### 3. 利用硬件特性辅助代码分析类任务
 * **利用 Intel Processor Trace 辅助绕过反调试**：[S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
 * **基于 Intel Processor Trace 的高效多核执行流记录与重放**：[CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)
