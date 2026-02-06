@@ -413,6 +413,8 @@ AGI has a non‑trivial chance of becoming real.
 
 And so does an automated vulnerability‑discovery system that rivals human experts. Maybe not next year, maybe not the year after—but it is very likely on its way.
 
+> **Postscript**: In February 2026, Anthropic's Claude Opus 4.6 automatically discovered over 500 zero-day vulnerabilities during internal red team testing, further validating the core thesis of this article—that the capability boundaries of AI in automated vulnerability discovery are rapidly expanding. For a detailed analysis of this event, see [What Do Opus 4.6's 500 Zero-Days Mean for Us?](/en/blog/opus-4-6-500-zero-days).
+
 ## Closing Thoughts
 
 The last three years carry a clear message: **the rules of the game are changing fast.**
