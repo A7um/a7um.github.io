@@ -1,7 +1,7 @@
 ---
 title: "Breaking Inertia, Embracing Change: The Most Important Thing for 2026 and Beyond"
 date: 2026-02-16
-tags: [AI, Thoughts]
+tags: [AI, thoughts]
 abstract: >
   The coming era is likely to be the most dramatically changing period in human history. The greater our inertia, the further we might slide down the wrong path. Breaking inertia and embracing change is the most important thing for 2026 and beyond.
 ---
