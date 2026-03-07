@@ -2,9 +2,7 @@
 title: "Security and Privacy in Shambles? Where Are the Answers for Openclaw Security?"
 date: 2026-03-02
 tags: [ai-security, software-security]
-abstract: >
-  When users choose "convenience over security," where exactly does AI Agent security go from here?
-  Drawing from three historical cases—Android permissions, Cambridge Analytica, and cloud computing—this article explores possible governance paths for Openclaw security.
+abstract: "When users choose 'convenience over security,' where exactly does AI Agent security go from here? Drawing from three historical cases—Android permissions, Cambridge Analytica, and cloud computing—this article explores possible governance paths for Openclaw security."
 ---
 
 I previously published an article about [Openclaw security risks](/en/blog/openclaw_risk/)—embarrassingly, shortly after writing it, I installed Openclaw myself. I'm not the first, and I won't be the last. Sam Altman admitted at Cisco's AI Summit in 2026 that when installing Codex, he swore never to hand over control, but lasted only two hours. The CEO of OpenAI, who constantly talks about AI safety, had only two hours of resistance when faced with "letting AI take complete control of your computer."

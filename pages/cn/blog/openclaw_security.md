@@ -2,9 +2,7 @@
 title: 安全隐私全摆烂？Openclaw安全的答案在哪里
 date: 2026-03-02
 tags: [ai-security, software-security]
-abstract: >
-  当用户选择了"方便 > 安全"，AI Agent 安全的出路到底在哪里？
-  本文从安卓权限、Cambridge Analytica、云计算三个历史案例出发，推导 Openclaw 安全治理的可能路径。
+abstract: "当用户选择了「方便 > 安全」，AI Agent 安全的出路到底在哪里？本文从安卓权限、Cambridge Analytica、云计算三个历史案例出发，推导 Openclaw 安全治理的可能路径。"
 ---
 
 之前我发表了一篇关于 [Openclaw 安全风险的文章](/cn/blog/openclaw_risk/)——说出来有点丢人——那篇文章写完没多久，我就装上了 Openclaw。我不是第一个这样的人，也不会是最后一个。Sam Altman 在 2026 年思科 AI 峰会上亲口承认，他在安装 Codex 时本来发誓绝不交出控制权，结果只撑了两个小时。一个把 AI 安全挂在嘴边的 OpenAI 掌门人，面对"让 AI 全权接管你的电脑"这件事，抵抗力只有两小时。
