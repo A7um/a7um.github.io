@@ -3,10 +3,8 @@ title: "Breaking Inertia, Embracing Change: The Most Important Thing for 2026 an
 date: 2026-02-16
 tags: [AI, Thoughts]
 abstract: >
-  Happy Chinese New Year's Eve. On the last day of lunar year 2025, I decided to start a WeChat public account called "Co-Being" (共在), signifying that we have always already co-existed with other beings ontologically. AI is becoming a new kind of being—we need to rethink how we encounter and coexist with all beings in the world. For this first article, let me discuss what I believe will be the most important thing in the coming period.
+  The coming era is likely to be the most dramatically changing period in human history. The greater our inertia, the further we might slide down the wrong path. Breaking inertia and embracing change is the most important thing for 2026 and beyond.
 ---
-
-> **Happy Chinese New Year's Eve.** On the last day of lunar year 2025, I decided to start a WeChat public account called "Co-Being" (共在), signifying that we have always already co-existed with other beings ontologically. AI is becoming a new kind of being—we need to rethink how we encounter and coexist with all beings in the world. For this first article, let me discuss what I believe will be the most important thing in the coming period.
 
 Physical inertia keeps objects in their current state of motion, while human inertia keeps us inclined to pursue our existing goals using our existing methods.
 
