@@ -8,7 +8,7 @@ abstract: >
   本文系统分析了这一风险产生的根源、攻击成立的条件，以及为什么现有防护只能缓解而无法根治。
 ---
 
-OpenClaw 最初名为 OpenClaw，中间曾改名为 Moltbot。
+OpenClaw 最初名为 Clawdbot，中间曾改名为 Moltbot。
 
 ## 核心结论
 

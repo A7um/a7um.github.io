@@ -9,7 +9,7 @@ abstract: >
   and why existing defenses can only mitigate, but never eliminate, the threat.
 ---
 
-OpenClaw was originally named OpenClaw and was temporarily renamed Moltbot.
+OpenClaw was originally named Clawdbot and was temporarily renamed Moltbot.
 
 ## Core Conclusion
 
