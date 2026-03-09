@@ -1,7 +1,7 @@
 ---
 title: Installing OpenClaw Gives Hackers Control of Your Computer
 date: 2026-02-01
-tags: [ai-security, software-security]
+tags: [ai-security, software-security, openclaw]
 abstract: >
   Simply by deploying OpenClaw and conversing with it, your computer could be completely controlled by attackers.
   This is a fundamental architectural problem, not a bug—it's a "feature".

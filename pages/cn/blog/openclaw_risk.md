@@ -1,7 +1,7 @@
 ---
 title: 只要安装了OpenClaw，你的电脑就可以被黑客控制
 date: 2026-02-01
-tags: [ai-security, software-security]
+tags: [ai-security, software-security, openclaw]
 abstract: >
   只要部署了 OpenClaw 并与之对话，你的电脑就有可能被攻击者完全控制。
   这是架构层面的根本性问题，不是 bug，而是"feature"。

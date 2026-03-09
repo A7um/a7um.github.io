@@ -1,7 +1,7 @@
 ---
 title: "Security and Privacy in Shambles? Where Are the Answers for Openclaw Security?"
 date: 2026-03-02
-tags: [ai-security, software-security]
+tags: [ai-security, software-security, openclaw]
 abstract: "When users choose 'convenience over security,' where exactly does AI Agent security go from here? Drawing from three historical cases—Android permissions, Cambridge Analytica, and cloud computing—this article explores possible governance paths for Openclaw security."
 ---
 

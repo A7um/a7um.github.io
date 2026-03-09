@@ -1,7 +1,7 @@
 ---
 title: 安全隐私全摆烂？Openclaw安全的答案在哪里
 date: 2026-03-02
-tags: [ai-security, software-security]
+tags: [ai-security, software-security, openclaw]
 abstract: "当用户选择了「方便 > 安全」，AI Agent 安全的出路到底在哪里？本文从安卓权限、Cambridge Analytica、云计算三个历史案例出发，推导 Openclaw 安全治理的可能路径。"
 ---
 
