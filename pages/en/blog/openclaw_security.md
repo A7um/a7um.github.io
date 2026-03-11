@@ -14,9 +14,17 @@ The most critical security issue with Openclaw can be summarized in one sentence
 
 From a permissions perspective, the OpenClaw process is essentially you. It has exactly the same system permissions as you do—it can read your files, execute commands, and access your emails and chat records. You've essentially installed "another you" in your computer, and this "other you" reads content from the internet—content that anyone can write.
 
-There are two distinct but equally serious issues to differentiate here. First, attackers can plant malicious instructions on the internet in advance; when OpenClaw reads this content, its behavior gets hijacked to execute the attacker's desired operations—this is the active attack risk. Second, even without any attacker involvement, your conversations with the AI and data on your computer are sent to model providers' servers like Claude—this is an architectural privacy issue, not a bug, but by design. This article addresses both.
+This gives rise to three distinct but equally serious categories of risk.
 
-As a security researcher, I thought these two types of risks would be the main obstacles to widespread adoption of desktop Agents. Users proved me wrong through their actions—OpenClaw exploded in popularity despite being essentially naked in terms of security and privacy.
+The first is prompt injection risk: attackers can plant malicious instructions on the internet in advance, and when OpenClaw reads this content, its behavior gets hijacked to execute the attacker's desired operations. This is the most fundamental threat unique to AI Agents.
+
+The second is traditional security risk: admin interfaces exposed to the public internet without passwords, sensitive credentials stored in plaintext, skill store audits that are little more than a formality, and software vulnerabilities that can be remotely exploited—these are problems long familiar in traditional software, yet OpenClaw has hit nearly every one of them, and the system-level permissions that AI Agents possess amplify the damage of each traditional vulnerability many times over.
+
+The third is architectural privacy risk: even without any attacker involvement, users' conversations with the AI and data on their computers are sent to model providers' servers like Claude. This isn't a bug—it's by design. For the AI Agent to work, it must hand your information to a third-party large language model for processing.
+
+The following sections examine each in turn.
+
+As a security researcher, I thought these three categories of risk would be the main obstacles to widespread adoption of desktop Agents. Users proved me wrong through their actions—OpenClaw exploded in popularity despite being essentially naked in terms of security and privacy.
 
 <center><img src="/static/openclaw_security/convenience_over_security.png" /></center>
 <center>Figure 2: Users choose convenience over security</center>
@@ -100,19 +108,31 @@ The core security threat is: attackers use prompt injection to make the Agent ex
 
 The core privacy threat is sensitive data being sent to the cloud. Edge-side desensitization is a technical direction worth attention: before data is sent to cloud APIs, a local lightweight model identifies and replaces sensitive information, with only the desensitized content being sent out. This way, even if data is sent, it doesn't contain truly sensitive content. As edge-side model capabilities continue to improve, this path is becoming increasingly viable.
 
-### Path Two: Cloud Computing Route—Compliance + Contracts + Trust System
+### Path Two: Institutional Path—Compliance, Contracts, and Trust Systems
 
-Another path is to borrow from cloud computing's governance model: not relying on technology to eliminate all risks, but using contracts and institutions to manage risks. Specifically, Agent vendors sign legally binding data processing agreements with users, clarifying what data can be sent to the cloud, how long it's retained, and who can access it; independent third-party audits are introduced to regularly verify whether vendors comply with agreements; skill stores establish clear liability through legislation and introduce truly effective security audits, rather than just integrating VirusTotal. There's an even more thorough approach: having an independent trusted third party host the API call process, with your data forwarded to large models through this third party, so the vendor itself never directly touches user data.
+**Privacy Side: From "Trust Me" to "You Can Verify"**
 
-The essence of this mechanism is: turning "trust OpenClaw not to leak your data" into "OpenClaw cannot leak your data under contract and external supervision."
+When cloud computing first emerged, "putting data on someone else's server" was unacceptable to many enterprise IT departments. Cloud computing ultimately won market trust not by eliminating all technical risks, but by building a verifiable trust system that turned "trust me" into "you can verify." This included: regular security audits by independent organizations, international information security certifications, data processing agreements, customer-determined data residency regions, customer-managed encryption keys, and regular public transparency reports.
+
+By analogy to OpenClaw, AI assistant vendors sign legally binding data processing agreements with users, clarifying what data can be sent to the cloud, how long it's retained, and who can access it. Independent third-party audits are introduced to regularly verify whether vendors comply with agreements. There's an even more thorough approach: having an independent trusted third party host the data transmission process, so the vendor itself never directly touches user data.
+
+The 2018 Cambridge Analytica incident provides another reference point. A personality quiz app on Facebook exploited the platform's open data interfaces to collect data from approximately 87 million users for political ad targeting—and Facebook's systems were never breached; the platform's design simply allowed applications to access this information. Today's desktop AI assistants face a highly similar situation: system-level permissions aren't a bug but by design, data being sent to the cloud is an architectural decision, and prompt injection is an inherent property of language models. That incident directly drove strict enforcement of the EU's General Data Protection Regulation (GDPR). Similar regulatory intervention will very likely occur in the desktop AI assistant space as well.
+
+For the highest sensitivity scenarios, confidential computing is worth attention. Modern processors can carve out an isolated area within the chip where data is only decrypted and processed, then immediately encrypted when sent out. Everything outside this area—including the operating system, cloud platform administrators, and even those with physical access to the server—cannot read the content inside. Think of it like processing documents inside a bank safe deposit box: the bank clerk may have helped you open the door, but they can't see what's in your box. This technology is still in early stages, but it points to an important direction: not relying on trust, but using technical constraints to replace trust.
 
 <center><img src="/static/openclaw_security/cloud_approach_contract.png" /></center>
 <center>Figure 8: Following the cloud computing model, using contracts and regulation to restrict model vendors' access to user privacy data</center>
 
-For the highest sensitivity scenarios, there's a more aggressive technical direction worth attention: Confidential Computing. Modern processors can carve out an isolated area within the chip where data is only decrypted and processed in this area, then immediately encrypted when sent out. Everything outside this area—the operating system, cloud platform administrators, even those with physical access to the server—cannot read the content inside. This means you can hand your data to the cloud for processing, and the cloud operator technically cannot see your data—not because they promise not to look, but because hardware mechanisms prevent them from looking. This technology is still in early stages, but it points to an important direction: not relying on trust, but using technical constraints to replace trust.
-
 <center><img src="/static/openclaw_security/confidential_computing.png" /></center>
 <center>Figure 9: The principle of confidential computing</center>
+
+**Security Side: Using Standards to Define How AI Agents Should Be Built**
+
+Privacy issues can be constrained through contracts and audits; security issues can likewise follow the institutional path—with standardization as the core mechanism. The exposed admin interfaces, plaintext credential storage, and inadequate skill store audits mentioned earlier all stem fundamentally from the fact that there is no widely accepted security baseline for "how AI assistants should be built." Every vendor does its own thing, with wildly varying security levels. If an industry standard explicitly required: admin interfaces must enable authentication by default, credentials must be encrypted at rest, skill stores must implement code signing and behavioral sandbox review, and permission models must follow the principle of least privilege—then many of the problems OpenClaw has exposed should never have occurred in the first place.
+
+In fact, NIST is already driving this effort. The National Institute of Standards and Technology has launched the AI Agent Standards Initiative, drafting a security and trust framework specifically for AI Agents. This draft aims to answer precisely the questions above: what minimum security capabilities should AI Agents possess, how should permission boundaries be managed, how should untrusted external inputs be handled, and what security standards should skill and plugin ecosystems follow. Once such standards mature and gain wide adoption, they will become the "security baseline" for the AI assistant space—just as cloud service providers without security certifications can hardly win enterprise clients today, products that don't meet AI Agent security standards will gradually be filtered out by the market and regulators.
+
+The value of standards lies not only in constraining vendors but also in providing users, enterprise buyers, and regulators with a common yardstick. Currently, when users face an AI assistant, they have almost no way to judge its security level; with standards in place, "whether it has passed AI Agent security certification" becomes a simple, actionable screening criterion.
 
 I tend to believe Path Two is more likely to become reality. Path One has fundamental tension with the Agent's core experience, while Path Two manages risk through external constraints without changing the product form—this is the path of least resistance and one that history has repeatedly proven effective.
 
