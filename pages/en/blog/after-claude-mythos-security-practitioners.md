@@ -34,7 +34,8 @@ When you stand in that seat, you see what managers have always seen: a backlog o
 
 The same logic applies at every level. A team lead thinks like a director about cross‑team coordination and budget; a director thinks like a CISO about company‑wide strategy. Each step up adds context to reconcile, stakeholders to balance, and tradeoffs to make.
 
-Moreover, as AI raises execution throughput, every layer of leadership suddenly has a pile of “we always knew we should do this but never had the people” initiatives back on the table—and someone has to own them. Organizations will not discard people who level up; demand for them will grow. What gets left behind are people who refuse to level up and insist, “I only know how to manually tear apart samples.”
+
+Moreover — once AI raises execution efficiency across the board, every backlogged initiative that leaders "knew we should do but never had the resources for" suddenly becomes actionable. Someone has to step in and own those. On the flip side, when attackers gain the same capabilities, enterprises are no longer facing scattered human hackers — they're up against AI-army-grade firepower. Zero-days are no longer scarce, penetration can run 7×24 without pause, and the assumptions behind traditional defense architectures get torn apart. New frameworks, new strategies, new judgment calls — all of it needs people. From both angles, there's more work, not less. Organizations won't discard those who successfully level up; the demand for them will only grow. The ones who get left behind are those who refuse to evolve — clinging to "all I know is manually triaging samples" as the world moves on.
 
 ## The baseline skill at every level
 
