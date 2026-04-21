@@ -2,3 +2,8 @@
 .DS_Store
 node_modules/
 dist/
+
+# Draft blog posts - never committed or pushed.
+# Put work-in-progress posts here; they only show up locally
+# when building with INCLUDE_DRAFTS=1 (npm run preview-drafts).
+drafts/

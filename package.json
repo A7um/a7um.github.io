@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "build-static": "node scripts/generate-static-site.js",
+    "build-drafts": "INCLUDE_DRAFTS=1 node scripts/generate-static-site.js",
+    "preview-drafts": "INCLUDE_DRAFTS=1 node scripts/generate-static-site.js && python3 -m http.server 8000 --directory dist",
     "generate-manifest": "node scripts/generate-manifest.js",
     "serve": "python3 -m http.server 8000",
     "serve-dist": "python3 -m http.server 8000 --directory dist"

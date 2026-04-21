@@ -19,8 +19,17 @@ const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
 const pagesDir = path.join(rootDir, 'pages');
+const draftsDir = path.join(rootDir, 'drafts');
 const templatesDir = path.join(rootDir, 'templates');
 const staticDir = path.join(rootDir, 'static');
+
+// When true, include drafts: posts under drafts/{lang}/blog/ and posts
+// with `draft: true` in frontmatter. Drafts are never deployed: the
+// drafts/ directory is gitignored and the production build sets this to
+// false so `draft: true` posts (even accidentally committed ones) are
+// stripped from the generated site.
+const INCLUDE_DRAFTS = process.env.INCLUDE_DRAFTS === '1'
+    || process.env.INCLUDE_DRAFTS === 'true';
 
 // Configure marked with syntax highlighting
 marked.use(markedHighlight({
@@ -135,45 +144,84 @@ function copyStaticAssets() {
 }
 
 /**
- * Parse all blog posts for a language
+ * Coerce a frontmatter draft flag into a boolean.
+ * Accepts true/false booleans and common string forms ("true", "yes", "1").
+ */
+function isDraftFlag(value) {
+    if (value === true) return true;
+    if (typeof value === 'string') {
+        const v = value.trim().toLowerCase();
+        return v === 'true' || v === 'yes' || v === '1';
+    }
+    return false;
+}
+
+/**
+ * Parse a single blog post markdown file. Returns null if it should
+ * be skipped (parse error or draft filtered out).
+ */
+function parseBlogPostFile(filePath, { isDraftSource }) {
+    const file = path.basename(filePath);
+    const content = fs.readFileSync(filePath, 'utf8');
+
+    try {
+        const { frontmatter, markdown } = parseFrontmatter(content);
+        const id = path.basename(file, '.md');
+        const draft = isDraftSource || isDraftFlag(frontmatter.draft);
+
+        if (draft && !INCLUDE_DRAFTS) {
+            console.log(`  ⏭  Skipping draft: ${file}`);
+            return null;
+        }
+
+        return {
+            id,
+            title: frontmatter.title,
+            date: frontmatter.date,
+            tags: frontmatter.tags || [],
+            abstract: frontmatter.abstract || '',
+            markdown,
+            frontmatter,
+            draft
+        };
+    } catch (error) {
+        console.error(`Error parsing ${file}:`, error.message);
+        return null;
+    }
+}
+
+/**
+ * Parse all blog posts for a language. When INCLUDE_DRAFTS is set,
+ * also merges in any posts under drafts/{lang}/blog/. Drafts override
+ * published posts with the same id.
  */
 function parseBlogPosts(lang) {
-    const blogDir = path.join(pagesDir, lang, 'blog');
-    const posts = [];
-    
-    if (!fs.existsSync(blogDir)) {
-        return posts;
+    const sources = [
+        { dir: path.join(pagesDir, lang, 'blog'), isDraftSource: false }
+    ];
+
+    if (INCLUDE_DRAFTS) {
+        sources.push({
+            dir: path.join(draftsDir, lang, 'blog'),
+            isDraftSource: true
+        });
     }
-    
-    const files = fs.readdirSync(blogDir);
-    
-    for (const file of files) {
-        if (!file.endsWith('.md')) continue;
-        
-        const filePath = path.join(blogDir, file);
-        const content = fs.readFileSync(filePath, 'utf8');
-        
-        try {
-            const { frontmatter, markdown } = parseFrontmatter(content);
-            const id = path.basename(file, '.md');
-            
-            posts.push({
-                id,
-                title: frontmatter.title,
-                date: frontmatter.date,
-                tags: frontmatter.tags || [],
-                abstract: frontmatter.abstract || '',
-                markdown,
-                frontmatter
-            });
-        } catch (error) {
-            console.error(`Error parsing ${file}:`, error.message);
+
+    const byId = new Map();
+
+    for (const { dir, isDraftSource } of sources) {
+        if (!fs.existsSync(dir)) continue;
+
+        const files = fs.readdirSync(dir);
+        for (const file of files) {
+            if (!file.endsWith('.md')) continue;
+            const post = parseBlogPostFile(path.join(dir, file), { isDraftSource });
+            if (post) byId.set(post.id, post);
         }
     }
-    
-    // Sort by date, newest first
+
+    const posts = Array.from(byId.values());
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    
     return posts;
 }
 
@@ -671,7 +719,12 @@ function generateRootIndex() {
  */
 async function build() {
     console.log('🔨 Building static site...\n');
-    
+
+    if (INCLUDE_DRAFTS) {
+        console.log('📝 INCLUDE_DRAFTS=1 — drafts will be included in this build');
+        console.log('   (do NOT deploy this output)\n');
+    }
+
     // Clean and prepare
     cleanDist();
     copyStaticAssets();
