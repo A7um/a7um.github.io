@@ -12,14 +12,14 @@ Three hot takes up front.
 I enforce three rules on my team:
 
 1. **No writing code by hand.**
-2. **No watching an agent code.**
-3. **No reviewing agent code in the editor.**
+2. **No watching agents write code.**
+3. **No reviewing agent-written code in your editor.**
 
-Every one of these, the first time someone hears it, they assume I'm joking. Why these three aren't nonsense is what the rest of this post is about.
+The first time anyone hears one of these, they assume I'm joking. Why these three aren't nonsense is what the rest of this post is about.
 
 ## Introduction
 
-By 2026, AI coding has moved from "autocomplete assistant" to "autonomous builder." But the real productivity leap isn't one agent writing faster — it's the ability to **start several agents in parallel**, each pushing forward a different task.
+In 2026, AI coding has moved from "autocomplete assistant" to "autonomous builder." But the real productivity leap isn't one agent writing faster — it's the ability to **start several agents in parallel**, each pushing forward a different task.
 
 It's worth noting that what can go parallel isn't limited to writing code. As agents get better at more things — research, data analysis, writing, testing, email, design — almost every kind of knowledge work that can be split into independent subtasks is a candidate for parallelization. This post focuses on **development**, the most mature case. If your work is something else, the ideas here should transfer.
 
@@ -47,7 +47,7 @@ The three share one trait: they all require human-in-the-loop. And human attenti
 
 ## Through 2025: human as driver, AI as copilot
 
-> **TL;DR:** Before Opus 4.5 the shared shape of all solutions was "make human-AI collaboration more efficient," not "let AI close the loop itself" — human as driver, AI as Copilot. Parallelism was pointless: it just turned queueing into simultaneous queueing.
+> **TL;DR:** Before Opus 4.5, the shared shape of every solution was "make human-AI collaboration more efficient," not "let AI close the loop itself" — human as driver, AI as Copilot. Parallelism was pointless: it just turned queueing into simultaneous queueing.
 
 Before Opus 4.5, the field's response to all three bottlenecks shared one underlying shape: make human-AI collaboration more efficient — not make AI self-sufficient. That shape locked us in: the human was the driver, AI was the Copilot, and real parallelism was out of reach.
 
@@ -67,13 +67,13 @@ Parallel development made little sense in this era. You could open five agent wi
 
 > **TL;DR:** In H2 2025 frontier models leveled up along four axes — autonomous debugging, instruction following, Skill-based discipline, and Computer Use. That shift lets mechanisms replace live human involvement in all three bottlenecks. Separately, failure got cheap — "try N approaches and pick the winner" became a default move.
 
-In the second half of 2025, frontier models took a substantial collective step forward in code capability, instruction following, and long-horizon task completion. Models led by Opus 4.5 made it possible, for the first time, to replace deep human involvement in each of the three bottlenecks with mechanisms. In other words, real parallel development finally had its prerequisites.
+In the second half of 2025, frontier models took a substantial collective step forward in code capability, instruction following, and long-horizon task completion. This generation of models — Opus 4.5 and its peers — made it possible, for the first time, to replace deep human involvement in the three bottlenecks with mechanisms. In other words, real parallel development finally had its prerequisites.
 
 The shift showed up in four directions:
 
 **Autonomous debugging became much stronger.** Give the agent a runnable debugging environment — a terminal, logs, a test framework — and it will locate and fix most everyday bugs on its own. Where before a human had to point out "there's an off-by-one error here," now the agent runs the tests, reads the stack trace, walks the call graph, and solves it.
 
-**"Understood correctly" more reliably translates to "implemented correctly."** One key change: if the agent's understanding of the requirement is on target, and if you give it a test environment plus explicit acceptance criteria, then after its own test-and-fix cycle the correctness of the code is reliably maintained in common business scenarios. Non-functional requirements (concurrency, performance, security) and architectural trade-offs are still exceptions — we'll come back to this.
+**"Understood correctly" more reliably translates to "implemented correctly."** One key change: if the agent's understanding of the requirement is on target, and if you give it a test environment plus explicit acceptance criteria, then after its own test-and-fix cycle the code it produces is reliably correct in common business scenarios. Non-functional requirements (concurrency, performance, security) and architectural trade-offs are still exceptions — we'll come back to this.
 
 **Engineering discipline can be partially internalized through Skills.** Hand the agent software engineering rules — naming conventions, layering, module boundaries, commit style — as structured Skill files, and it will follow most of them. Note "most": many design principles (deep modules vs. small composable ones, strategic vs. tactical design) are in inherent tension, and even senior engineers get them wrong regularly. Agents err on the same trade-offs. More on this below.
 
@@ -85,7 +85,7 @@ Stack all four together and you get one thing: **the human can leave the hot pat
 
 Beyond those four capability shifts, there's a **strategic** shift that deserves its own line: **letting an agent try a solution costs far less than letting a human try one.**
 
-Before AI, you couldn't casually ask an engineer to "implement it approach A first, then approach B" — people are too expensive. So the design phase had to resolve all the trade-offs up front; starting without a clear plan was a luxury. With agents, that constraint relaxes — **"not sure which design? Then run a few agents in parallel, each trying one, and pick the winner after the tests come back."**
+Before AI, you couldn't casually ask an engineer to "implement approach A first, then approach B" — people are too expensive. So the design phase had to resolve all the trade-offs up front; starting without a clear plan was a luxury. With agents, that constraint relaxes — **"not sure which design? Then run a few agents in parallel, each trying one, and pick the winner after the tests come back."**
 
 This looks like a quantitative change but triggers a qualitative one: "multi-path exploration, pick the winner" goes from rare to routine. The principle runs through all of the parallel-execution modes below — a lot of the time you parallelize not because the task splits cleanly but because **trying is cheaper than thinking it through**. The "let multiple agents implement different versions and merge the best" idiom in Mode 2 below is a direct application of this.
 
@@ -154,7 +154,7 @@ The agent running its own tests, debugging, doing end-to-end flows — all of it
 - **CLI / APIs** — shell + logs + test framework. Lowest bar.
 - **Web apps** — beyond getting the service up, you must expose **browser-use capability** (a Playwright server, headless Chrome with a CDP port, or VNC). Without that layer, the agent can't click a button, can't observe a page's response, can't do a real end-to-end test.
 - **Desktop / GUI apps** — must expose **GUI-use capability** (X11 forwarding, xdotool, a screenshot pipe). Otherwise the agent can only "imagine" what user interactions look like.
-- **Complex systems** (state machines, async, concurrency, long-lived processes) — beyond logs, you must **expose a debugger** (gdb, DAP, Chrome DevTools protocol, or a language's built-in debugger). Let it set breakpoints, inspect variables, walk the stack — not pile `print` statements into bash and guess.
+- **Complex systems** (state machines, async, concurrency, long-lived processes) — beyond logs, you must **expose a debugger** (gdb, DAP, Chrome DevTools protocol, or a language's built-in debugger). Let it set breakpoints, inspect variables, walk the stack — not fall back to scattering `print` statements and reading shell output.
 
 A simple sanity check: **imagine a new engineer who can only use the tools you've provided — could they reproduce a production bug?** If they can't, the agent can't either.
 
@@ -164,11 +164,11 @@ The agent's capabilities have to match what you'd give a human engineer. This is
 
 There's an easily overlooked trap: if **the same agent** produces both the test plan and the implementation, any misunderstanding of the requirement contaminates both — tests and code go green together, both wrong, and you think everything's fine.
 
-This is the biggest logical hole in TPDD. **The fix: the test plan must be reviewed **independently** before entering the implementation phase.**
+This is the biggest logical hole in TPDD. **The fix: the test plan must be reviewed *independently* before entering the implementation phase.**
 
-"Independently" can be implemented at least two ways:
+"Independently" can be implemented in at least two ways:
 
-- **A human reviews it.** You — the requirement's author — or a senior colleague, using business sense. The upside: real domain common sense and business judgment. The downside: it consumes your deep attention; it can't be parallelized.
+- **A human reviews it.** Either you — the requirement's author — or a senior colleague, applying real business sense. Upside: domain common sense and business judgment. Downside: it consumes your deep attention and doesn't parallelize.
 - **Another agent reviews it.** Spin up a fresh-session agent, give it only the requirements doc and the test plan (not the implementation context), and ask it to find holes. Fundamentally this is multi-agent cross-validation — one agent's misunderstanding is unlikely to exactly match another fresh-session agent's misunderstanding, so it catches a surprising fraction of interpretation-driven errors. The upside: cheap, parallelizable, doesn't get tired. The downside: its business perspective is second-hand.
 
 **The two aren't exclusive — mix them by project complexity:**
@@ -187,7 +187,7 @@ The basic unit / integration / end-to-end test plan handles "functional correctn
 - **Non-functional requirements** — concurrency, performance, memory leaks, security boundaries.
 - **Long-term evolution behavior** — code that passes all tests today may fall apart after six months of ten overlapping changes.
 
-The fix continues the same approach as key 2: **write these domain-specific testing practices as dedicated Skill files and have the agent run them itself.** Examples:
+The fix continues the same approach as Key 2: **write these domain-specific testing practices as dedicated Skill files and have the agent run them itself.** Examples:
 
 - **Stress-test Skill** — teaches the agent how to construct high-concurrency load, observe p50/p99/p999, identify degradation curves, recognize SLA violations. It can stand up k6 / locust / wrk on its own, run a predefined load staircase, and produce a report with charts.
 - **Chaos-test Skill** — defines which dependencies (databases, downstream services, network) get random fault injection; the agent simulates kills, delays, packet loss, etc., to verify graceful degradation and recovery.
@@ -304,7 +304,7 @@ Key caveat: pick low-coupling directions for the parallel tasks. If two tasks he
 
 ### Mode 3: same work-item, different concerns — cross-concern parallelism
 
-**Inside a single feature, split by concern and parallelize.** Even one feature's development contains multiple concerns of different nature (backend logic tests, UI tests, known-bug fixes…) and they often parallelize naturally.
+**Inside a single feature, split by concern and parallelize.** Even one feature's development contains multiple concerns of different kinds (backend logic tests, UI tests, known-bug fixes…), and they often parallelize naturally.
 
 Concrete example. Suppose you're building an "order export" feature — you can start three agents at once: the first handles backend-logic testing (build a backend test plan covering edge cases like empty orders, huge volume, concurrent export, then author and run the test cases); the second handles UI-layer testing (Playwright end-to-end tests for the export button's interaction flow, file-download behavior, error-state display); the third works on a set of known bugs you previously observed.
 
@@ -318,7 +318,7 @@ Modes 1–3 put the scheduling granularity in your hands — you dispatch tasks,
 
 You can already see the early form in agent products with team-style capabilities — for example Claude Code's team feature, where the agent splits a task into multiple sub-agents each owning one piece and working in parallel. You don't have to open worktrees or dispatch tasks by hand; you just toss the big task over. But the current limits are real: cross-sub-agent context sharing is still fragile, collisions happen when boundaries are fuzzy, and the merge stage still often needs a human.
 
-That said, the *prerequisite* for this mode is worth building today: **module boundaries and inter-module protocols have to be defined before coding starts.** If sub-agents have to keep re-aligning "what format do you return / what do I accept" mid-implementation, they collide fast — merges end up worse than serial. So the precondition for this mode is exactly what key 3 asks for: get your architecture right, fix interface contracts in advance, and each sub-agent works independently within its own contract, producing pieces that fit together. Projects that took architecture seriously will naturally benefit from agent-driven within-task parallelism; projects that cut architectural corners won't, even if the underlying platform gains team support.
+That said, the *prerequisite* for this mode is worth building today: **module boundaries and inter-module protocols have to be defined before coding starts.** If sub-agents have to keep re-aligning "what format do you return / what do I accept" mid-implementation, they collide fast — merges end up worse than serial. So the precondition for this mode is exactly what Key 3 asks for: get your architecture right, fix interface contracts in advance, and each sub-agent works independently within its own contract, producing pieces that fit together. Projects that took architecture seriously will naturally benefit from agent-driven within-task parallelism; projects that cut architectural corners won't, even if the underlying platform gains team support.
 
 [`zero-review/auto-dev`](https://github.com/A7um/zero-review/tree/main/skills/auto-dev) currently requires "modularization + interface contracts" as a hard step in its architecture phase, specifically so that once this capability stabilizes, downstream within-task parallelism is immediately available.
 
@@ -328,9 +328,9 @@ In practice, the first three modes aren't mutually exclusive — you can nest Mo
 
 ## The new bottleneck parallelism creates: you can't digest all the output
 
-> **TL;DR:** Not a future bottleneck — the moment you run 3+ agents in parallel, their output (code, test reports, feedback) piles up on you. The fix ("let agents digest agents' output") is exactly what's not yet working today.
+> **TL;DR:** Not a future bottleneck — the moment you run 3+ agents in parallel, their output (code, test reports, feedback) piles up on you. The fix — having agents triage each other's output — is exactly the piece that isn't working reliably yet.
 
-Imagine you're running a few parallel agents as described above, each producing code changes, test reports, user-test feedback, and retros. The first week you feel great about the pace. The second week you realize most of your day is gone to reading everyone's reports — and plenty of those reports are duplicates or low-priority trivia piling up on you. You've moved from "reviewing code" to "reading reports." The bottleneck quietly returned to you.
+Imagine you're running a few parallel agents as described above, each producing code changes, test reports, user-test feedback, and retros. The first week you feel great about the pace. The second week you realize most of your day is spent reading everyone's reports — and plenty of those reports are duplicates or low-priority trivia piling up on you. You've moved from "reviewing code" to "reading reports." The bottleneck quietly returned to you.
 
 The imagined fix follows the same pattern as bottleneck-breaking above: **the output also needs to be digested by agents** — batch-read all pending reports to find patterns and duplicates, merge different descriptions of the same issue, route by type into the next dev round, priority-rank by "users affected × has-workaround," attach a one-sentence rationale to each, and only escalate genuine high-priority items. Once this connects, the whole thing becomes a closed loop: you dispatch a requirement → agents develop in parallel → output gets auto-digested and organized → new work items get routed back into the agents.
 
@@ -366,7 +366,7 @@ Put differently: you go from "physical plus mental" to "purely mental." The math
 
 So make deliberate space for yourself: batch-process status reports so the agents' output doesn't chat-message your attention into fragments; block out undisturbed time for thinking about direction and process; don't let "letting go" become the illusion of "I don't have to do anything." What AI saves is work-you-were-doing-with-your-hands; the time saved doesn't turn into leisure on its own — you have to deliberately leave it blank.
 
-You're no longer the one typing keys. You're **the person designing and running the collaboration system**. A higher leverage position, a bigger multiplier, and heavier demands on judgment. Tired, yes — but this is the kind of tired that actually creates value.
+You're no longer the one at the keyboard. You're **the person designing and running the collaboration system**. A higher leverage position, a bigger multiplier, and heavier demands on judgment. Tired, yes — but this is the kind of tired that actually creates value.
 
 ---
 
@@ -376,7 +376,7 @@ You're no longer the one typing keys. You're **the person designing and running 
 
 Three keys behind that: replace repeated negotiation with a structured requirement-alignment process (breaks bottleneck 1); replace line-by-line review with test-plan-driven development (breaks bottleneck 2); replace ad-hoc architectural oversight with Skill-injected engineering discipline (breaks bottleneck 3). Plus one strategic shift: failure got cheap — "multi-path exploration, merge the winner" became a default move.
 
-When these conditions break in, your role moves from "pair programmer for each agent" to "tech lead for a team of agents" — you set direction, set standards, review test plans, spot-check at pivotal moments; the coding, testing, debugging, and most architectural detail are the agent's responsibility.
+Once you've broken in all three, your role shifts from "pair programmer to each agent" to "tech lead of a team of agents" — you set direction, set standards, review test plans, and spot-check at pivotal moments; the coding, testing, debugging, and most architectural detail are the agent's responsibility.
 
 **And this payoff isn't limited to development — any knowledge work that can be split into independent subtasks is a candidate.** Coding is just the first case that's actually running.
 
