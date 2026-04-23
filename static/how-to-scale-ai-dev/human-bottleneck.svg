@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" font-family="Monaco, Menlo, 'Ubuntu Mono', monospace" font-size="13">
+  <style>
+    .bg { fill: #1e1e1e; }
+    .panel { fill: #2d2d30; stroke: #333; stroke-width: 1; }
+    .panel-you { fill: #2d2d30; stroke: #d16969; stroke-width: 1.5; }
+    .panel-you-ok { fill: #2d2d30; stroke: #dcdcaa; stroke-width: 1.5; }
+    .pipe { fill: #232a20; stroke: #5f8700; stroke-width: 1.5; }
+    .rule-box { fill: #2d2d30; stroke: #dcdcaa; stroke-width: 1; }
+    .label { fill: #d4d4d4; }
+    .kw { fill: #569cd6; }
+    .type { fill: #4ec9b0; }
+    .str { fill: #ce9178; }
+    .cm { fill: #6a9955; font-size: 11px; }
+    .dim { fill: #808080; font-size: 11px; }
+    .head { fill: #d4d4d4; font-size: 13px; font-weight: bold; letter-spacing: 0.05em; }
+    .fade { fill: #3a3a3a; stroke: #505050; stroke-width: 1; }
+    .arrow-red { stroke: #d16969; stroke-width: 1.5; fill: none; }
+    .arrow-green { stroke: #5f8700; stroke-width: 1.5; fill: none; }
+    .arrow-dashed { stroke: #dcdcaa; stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
+  </style>
+  <defs>
+    <marker id="a-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#d16969"/>
+    </marker>
+    <marker id="a-g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#5f8700"/>
+    </marker>
+    <marker id="a-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#dcdcaa"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="880" height="380"/>
+
+  <!-- divider -->
+  <line x1="440" y1="30" x2="440" y2="355" stroke="#3a3a3a" stroke-dasharray="3 4"/>
+
+  <!-- BEFORE -->
+  <text x="20" y="28" class="head">BEFORE &#8212; human in every loop</text>
+
+  <g>
+    <rect x="20"  y="60"  width="100" height="36" class="panel" rx="3"/>
+    <text x="70"  y="83"  text-anchor="middle" class="type">agent-1</text>
+    <rect x="20"  y="110" width="100" height="36" class="panel" rx="3"/>
+    <text x="70"  y="133" text-anchor="middle" class="type">agent-2</text>
+    <rect x="20"  y="160" width="100" height="36" class="panel" rx="3"/>
+    <text x="70"  y="183" text-anchor="middle" class="type">agent-3</text>
+    <rect x="20"  y="210" width="100" height="36" class="panel" rx="3"/>
+    <text x="70"  y="233" text-anchor="middle" class="type">agent-4</text>
+    <rect x="20"  y="260" width="100" height="36" class="panel" rx="3"/>
+    <text x="70"  y="283" text-anchor="middle" class="type">agent-5</text>
+
+    <rect x="290" y="150" width="130" height="56" class="panel-you" rx="3"/>
+    <text x="355" y="172" text-anchor="middle" class="kw">you</text>
+    <text x="355" y="193" text-anchor="middle" class="dim">(reviews everything)</text>
+
+    <path class="arrow-red" d="M 120 78  Q 210 78,  290 165" marker-end="url(#a-r)"/>
+    <path class="arrow-red" d="M 120 128 Q 210 128, 290 172" marker-end="url(#a-r)"/>
+    <path class="arrow-red" d="M 120 178 L 290 180"            marker-end="url(#a-r)"/>
+    <path class="arrow-red" d="M 120 228 Q 210 228, 290 188" marker-end="url(#a-r)"/>
+    <path class="arrow-red" d="M 120 278 Q 210 278, 290 195" marker-end="url(#a-r)"/>
+
+    <text x="220" y="330" text-anchor="middle" class="cm">// throughput = 1x (bounded by your review)</text>
+  </g>
+
+  <!-- AFTER -->
+  <text x="460" y="28" class="head">AFTER &#8212; human sets rules, agents run loops</text>
+
+  <g>
+    <!-- agents -->
+    <rect x="460" y="60"  width="100" height="36" class="fade" rx="3"/>
+    <text x="510" y="83"  text-anchor="middle" class="type">agent-1</text>
+    <rect x="460" y="110" width="100" height="36" class="fade" rx="3"/>
+    <text x="510" y="133" text-anchor="middle" class="type">agent-2</text>
+    <rect x="460" y="160" width="100" height="36" class="fade" rx="3"/>
+    <text x="510" y="183" text-anchor="middle" class="type">agent-3</text>
+    <rect x="460" y="210" width="100" height="36" class="fade" rx="3"/>
+    <text x="510" y="233" text-anchor="middle" class="type">agent-4</text>
+    <rect x="460" y="260" width="100" height="36" class="fade" rx="3"/>
+    <text x="510" y="283" text-anchor="middle" class="type">agent-5</text>
+
+    <!-- autonomous pipeline (single big box) -->
+    <rect x="610" y="100" width="170" height="160" class="pipe" rx="4"/>
+    <text x="695" y="125" text-anchor="middle" class="label" font-size="12">autonomous pipeline</text>
+    <line x1="630" y1="138" x2="760" y2="138" stroke="#5f8700" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <text x="695" y="162" text-anchor="middle" class="str" font-size="11">auto-req</text>
+    <text x="695" y="183" text-anchor="middle" class="str" font-size="11">auto-dev</text>
+    <text x="695" y="204" text-anchor="middle" class="str" font-size="11">auto-test</text>
+    <line x1="630" y1="215" x2="760" y2="215" stroke="#5f8700" stroke-width="0.5" stroke-dasharray="2 2"/>
+    <text x="695" y="240" text-anchor="middle" class="cm" font-size="10">// self-verifies</text>
+
+    <!-- agents funnel into pipeline -->
+    <path class="arrow-green" d="M 560 78  Q 585 78,  610 120" marker-end="url(#a-g)"/>
+    <path class="arrow-green" d="M 560 128 Q 585 128, 610 148" marker-end="url(#a-g)"/>
+    <path class="arrow-green" d="M 560 178 L 610 178"           marker-end="url(#a-g)"/>
+    <path class="arrow-green" d="M 560 228 Q 585 228, 610 200" marker-end="url(#a-g)"/>
+    <path class="arrow-green" d="M 560 278 Q 585 278, 610 230" marker-end="url(#a-g)"/>
+
+    <!-- rules injection from you -->
+    <rect x="610" y="60" width="170" height="28" class="rule-box" rx="3"/>
+    <text x="695" y="79" text-anchor="middle" class="dim" font-size="11">rules &amp; skills</text>
+
+    <rect x="820" y="66" width="50" height="32" class="panel-you-ok" rx="3"/>
+    <text x="845" y="87" text-anchor="middle" class="kw" font-size="12">you</text>
+
+    <path class="arrow-dashed" d="M 820 82 L 780 80" marker-end="url(#a-y)"/>
+    <path class="arrow-dashed" d="M 695 90 L 695 98" marker-end="url(#a-y)"/>
+
+    <text x="660" y="330" text-anchor="middle" class="cm">// throughput = N x (you set direction, pipeline runs itself)</text>
+  </g>
+</svg>

@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="Monaco, Menlo, 'Ubuntu Mono', monospace" font-size="13">
+  <style>
+    .bg { fill: #1e1e1e; }
+    .node { fill: #2d2d30; stroke: #5f8700; stroke-width: 1.5; }
+    .node-wip { fill: #2a2320; stroke: #d16969; stroke-width: 1.5; stroke-dasharray: 5 3; }
+    .human { fill: #2d2d30; stroke: #dcdcaa; stroke-width: 1.2; }
+    .label { fill: #d4d4d4; font-size: 13px; }
+    .label-dim { fill: #808080; font-size: 11px; }
+    .label-wip { fill: #d16969; font-size: 13px; }
+    .name { fill: #4ec9b0; font-size: 12px; font-style: italic; }
+    .name-wip { fill: #d16969; font-size: 12px; font-style: italic; }
+    .kw { fill: #dcdcaa; font-size: 13px; font-weight: bold; }
+    .title { fill: #d4d4d4; font-size: 16px; font-weight: bold; letter-spacing: 0.05em; }
+    .cm { fill: #6a9955; font-size: 11px; }
+    .arrow { stroke: #5f8700; stroke-width: 1.8; fill: none; }
+    .arrow-wip { stroke: #d16969; stroke-width: 1.8; fill: none; stroke-dasharray: 5 3; }
+    .arrow-you { stroke: #dcdcaa; stroke-width: 1; fill: none; stroke-dasharray: 3 3; }
+  </style>
+  <defs>
+    <marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#5f8700"/>
+    </marker>
+    <marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#d16969"/>
+    </marker>
+    <marker id="my" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#dcdcaa"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="880" height="420"/>
+
+  <text x="440" y="32" text-anchor="middle" class="title">dev &#8594; test &#8594; triage &#8594; dev</text>
+  <text x="440" y="52" text-anchor="middle" class="cm">// target loop: 3 blocks in place, 1 still being built</text>
+
+  <!-- You, positioned top-center, clearly above the loop -->
+  <rect x="380" y="80" width="120" height="40" class="human" rx="4"/>
+  <text x="440" y="102" text-anchor="middle" class="kw">you</text>
+  <text x="440" y="116" text-anchor="middle" class="label-dim">(escalations only)</text>
+
+  <!-- Loop nodes, spaced on a clearer rectangular path -->
+  <!-- top-left: requirements -->
+  <rect x="140" y="170" width="150" height="56" class="node" rx="4"/>
+  <text x="215" y="192" text-anchor="middle" class="label">requirements</text>
+  <text x="215" y="212" text-anchor="middle" class="name">auto-req</text>
+
+  <!-- top-right: dev -->
+  <rect x="590" y="170" width="150" height="56" class="node" rx="4"/>
+  <text x="665" y="192" text-anchor="middle" class="label">dev</text>
+  <text x="665" y="212" text-anchor="middle" class="name">auto-dev</text>
+
+  <!-- bottom-right: user test -->
+  <rect x="590" y="290" width="150" height="56" class="node" rx="4"/>
+  <text x="665" y="312" text-anchor="middle" class="label">user test</text>
+  <text x="665" y="332" text-anchor="middle" class="name">auto-test</text>
+
+  <!-- bottom-left: triage (WIP) -->
+  <rect x="140" y="290" width="150" height="56" class="node-wip" rx="4"/>
+  <text x="215" y="312" text-anchor="middle" class="label-wip">triage</text>
+  <text x="215" y="332" text-anchor="middle" class="name-wip">auto-triage (WIP)</text>
+
+  <!-- Arrows: requirements -> dev (top) -->
+  <line x1="290" y1="198" x2="590" y2="198" class="arrow" marker-end="url(#mg)"/>
+
+  <!-- dev -> test (right side) -->
+  <line x1="665" y1="226" x2="665" y2="290" class="arrow" marker-end="url(#mg)"/>
+
+  <!-- test -> triage (bottom, WIP) -->
+  <line x1="590" y1="318" x2="290" y2="318" class="arrow-wip" marker-end="url(#mr)"/>
+
+  <!-- triage -> dev (diagonal back up to dev, WIP) -->
+  <path class="arrow-wip" d="M 215 290 Q 215 250, 215 230 Q 215 198, 590 198" marker-end="url(#mr)" fill="none" />
+
+  <!-- Human escalations: two dashed yellow lines to req and triage -->
+  <path class="arrow-you" d="M 425 120 Q 425 145, 260 170" marker-end="url(#my)"/>
+  <path class="arrow-you" d="M 455 120 Q 455 255, 260 290" marker-end="url(#my)"/>
+
+  <!-- legend -->
+  <g transform="translate(60, 380)">
+    <line x1="0"   y1="0" x2="32" y2="0" class="arrow" marker-end="url(#mg)"/>
+    <text x="40"  y="4" class="label-dim">in place today</text>
+
+    <line x1="200" y1="0" x2="232" y2="0" class="arrow-wip" marker-end="url(#mr)"/>
+    <text x="240" y="4" class="label-dim">missing block / not-yet-working links</text>
+
+    <line x1="560" y1="0" x2="592" y2="0" class="arrow-you" marker-end="url(#my)"/>
+    <text x="600" y="4" class="label-dim">human escalation</text>
+  </g>
+</svg>

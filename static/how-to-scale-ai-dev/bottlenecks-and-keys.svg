@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 370" font-family="Monaco, Menlo, 'Ubuntu Mono', monospace" font-size="13">
+  <style>
+    .bg { fill: #1e1e1e; }
+    .card-left { fill: #2d2d30; stroke: #d16969; stroke-width: 1.5; }
+    .card-right { fill: #2d2d30; stroke: #5f8700; stroke-width: 1.5; }
+    .section { fill: #d4d4d4; font-size: 15px; font-weight: bold; letter-spacing: 0.05em; }
+    .key { fill: #dcdcaa; font-size: 13px; font-weight: bold; }
+    .sub { fill: #d4d4d4; font-size: 12px; }
+    .dim { fill: #808080; font-size: 11px; }
+    .kw { fill: #569cd6; }
+    .str { fill: #ce9178; }
+    .cm { fill: #6a9955; font-size: 11px; }
+    .arrow { stroke: #5f8700; stroke-width: 1.5; fill: none; }
+  </style>
+  <defs>
+    <marker id="tri" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#5f8700"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="880" height="370"/>
+
+  <!-- headers -->
+  <text x="190" y="30" text-anchor="middle" class="section">3 bottlenecks</text>
+  <text x="690" y="30" text-anchor="middle" class="section">3 keys</text>
+
+  <!-- underlines -->
+  <line x1="100" y1="38" x2="280" y2="38" stroke="#d16969" stroke-width="1"/>
+  <line x1="600" y1="38" x2="780" y2="38" stroke="#5f8700" stroke-width="1"/>
+
+  <!-- row 1: requirement -->
+  <g>
+    <rect x="40" y="60" width="320" height="70" rx="4" class="card-left"/>
+    <text x="56" y="82" class="kw">#1</text>
+    <text x="84" y="82" class="sub">Requirement transfer</text>
+    <text x="56" y="104" class="cm">// mental intent &#8594; executable instruction</text>
+    <text x="56" y="120" class="dim">needs: repeated back-and-forth</text>
+
+    <line x1="370" y1="95" x2="510" y2="95" class="arrow" marker-end="url(#tri)"/>
+
+    <rect x="520" y="60" width="320" height="70" rx="4" class="card-right"/>
+    <text x="536" y="82" class="key">Key 1</text>
+    <text x="586" y="82" class="sub">Agent auto-fills hidden assumptions</text>
+    <text x="536" y="104" class="cm">// you pick from drafts, not answer questions</text>
+    <text x="536" y="120" class="str">propose &#8594; choose</text>
+  </g>
+
+  <!-- row 2: correctness -->
+  <g>
+    <rect x="40" y="150" width="320" height="70" rx="4" class="card-left"/>
+    <text x="56" y="172" class="kw">#2</text>
+    <text x="84" y="172" class="sub">Functional correctness</text>
+    <text x="56" y="194" class="cm">// it compiles &#8212; does it actually work?</text>
+    <text x="56" y="210" class="dim">needs: line-by-line code review</text>
+
+    <line x1="370" y1="185" x2="510" y2="185" class="arrow" marker-end="url(#tri)"/>
+
+    <rect x="520" y="150" width="320" height="70" rx="4" class="card-right"/>
+    <text x="536" y="172" class="key">Key 2</text>
+    <text x="586" y="172" class="sub">Test-plan-driven development</text>
+    <text x="536" y="194" class="cm">// unit &#8594; integration &#8594; E2E (gated)</text>
+    <text x="536" y="210" class="str">plan first, verify after</text>
+  </g>
+
+  <!-- row 3: maintainability -->
+  <g>
+    <rect x="40" y="240" width="320" height="70" rx="4" class="card-left"/>
+    <text x="56" y="262" class="kw">#3</text>
+    <text x="84" y="262" class="sub">Maintainability</text>
+    <text x="56" y="284" class="cm">// will this still be maintainable in 3 months?</text>
+    <text x="56" y="300" class="dim">needs: human-driven architecture</text>
+
+    <line x1="370" y1="275" x2="510" y2="275" class="arrow" marker-end="url(#tri)"/>
+
+    <rect x="520" y="240" width="320" height="70" rx="4" class="card-right"/>
+    <text x="536" y="262" class="key">Key 3</text>
+    <text x="586" y="262" class="sub">Engineering discipline as skills</text>
+    <text x="536" y="284" class="cm">// design rules + self-review checklist</text>
+    <text x="536" y="300" class="str">rules inlined, not reminded</text>
+  </g>
+
+  <!-- footer -->
+  <text x="440" y="350" text-anchor="middle" class="cm">// all three keys need project-specific calibration before they pay off</text>
+</svg>
