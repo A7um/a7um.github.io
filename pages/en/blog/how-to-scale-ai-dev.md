@@ -15,9 +15,7 @@ I enforce three rules on my team:
 2. **No watching an agent code.**
 3. **No reviewing agent code in the editor.**
 
-Every one of these, the first time someone hears it, they assume I'm joking. But the three rules have been running in our team for months now — nothing has broken, and it's been the biggest productivity shift in two years.
-
-Why these three aren't nonsense is what the rest of this post is about.
+Every one of these, the first time someone hears it, they assume I'm joking. Why these three aren't nonsense is what the rest of this post is about.
 
 > **TL;DR:** The real gate on parallel AI development isn't model capability — it's whether you can turn "requirement alignment / correctness verification / architectural oversight" into loops the agent can close itself.
 
