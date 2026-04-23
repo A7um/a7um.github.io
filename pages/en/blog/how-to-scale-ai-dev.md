@@ -6,7 +6,6 @@ abstract: >
   The next productivity shift in AI coding isn't about a single agent writing faster — it's about running several agents in parallel on different tasks at the same time. But to make parallelism actually work, you first have to dismantle three bottlenecks that force the human to stay in the loop: requirement transfer, functional correctness, and maintainability. And you have to accept a new strategic fact — once failure is cheap, "try N approaches and pick the winner" becomes a default move rather than a luxury. This post walks through the late-2025 capability shift that opened the door, then down to three concrete keys, four parallel-execution modes, and three ceilings you'll hit today. Includes a "break-in" note: none of this is plug-and-play — you have to calibrate it with your project.
 ---
 
-**Author: Guancheng Li of Tencent Xuanwu Lab**
 
 ## Introduction
 
