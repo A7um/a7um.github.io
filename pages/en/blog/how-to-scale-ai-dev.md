@@ -147,6 +147,28 @@ In other words, the review step can't be skipped, but the who-and-how-deep shoul
 
 > See [`zero-review/auto-dev`](https://github.com/A7um/zero-review/tree/main/skills/auto-dev) for the concrete implementation.
 
+#### What the functional test plan can't cover: write domain-specific Skills
+
+The basic unit / integration / end-to-end test plan handles "functional correctness." But there are categories of requirements that aren't functional — **a default test plan won't cover them**:
+
+- **Non-functional requirements** — concurrency, performance, memory leaks, security boundaries.
+- **Long-term evolution behavior** — code that passes all tests today may fall apart after six months of ten overlapping changes.
+
+The fix continues the same approach as key 2: **write these domain-specific testing practices as dedicated Skill files and have the agent run them itself.** Examples:
+
+- **Stress-test Skill** — teaches the agent how to construct high-concurrency load, observe p50/p99/p999, identify degradation curves, recognize SLA violations. It can stand up k6 / locust / wrk on its own, run a predefined load staircase, and produce a report with charts.
+- **Chaos-test Skill** — defines which dependencies (databases, downstream services, network) get random fault injection; the agent simulates kills, delays, packet loss, etc., to verify graceful degradation and recovery.
+- **Security-test Skill** — automated probes for common vulnerability classes (XSS, SQLi, privilege escalation, CSRF, ...). The agent acts like a junior pentester sweeping the common attack surface.
+- **Regression-evolution Skill** — periodically runs an "architectural decay self-check" on key modules in CI: are files getting too big, is per-function complexity crossing a threshold, are inter-module dependencies forming cycles. This catches some of the "only-goes-wrong-after-long-evolution" signals early.
+
+These Skills follow the same design philosophy as the base TestPlan: **describe, in a structured way, what "done right" looks like in this domain; then hand execution to the agent.** Writing the Skill is itself a chance to crystallize domain knowledge.
+
+One class of decision remains that Skills can't cover:
+
+- **Architectural trade-offs** — several structures may all be "correct" for the same requirement, but their costs and trade-offs differ. Tests can verify "does it run," but not "is this the right decomposition." This is fundamentally a business-context value judgment — only you (or a senior colleague) can spot-check it.
+
+In other words, the "must be human-reviewed" set is smaller than it looks. Most of what feels "uncovered by tests" is really just **a Skill you haven't written yet**. What genuinely requires human eyes is architectural judgment — **TPDD isn't about humans never reading code; it's about moving human attention from "read everything" to "read what actually requires business judgment."**
+
 #### Quick note: TDD vs. TPDD
 
 Readers familiar with software engineering will notice the echo — this pattern descends from classic Test-Driven Development (TDD), but differs in a key way under AI collaboration.
