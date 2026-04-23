@@ -7,6 +7,8 @@ abstract: >
 ---
 
 
+> **TL;DR:** The real gate on parallel AI development isn't model capability — it's whether you can turn "requirement alignment / correctness verification / architectural oversight" into loops the agent can close itself.
+
 ## Introduction
 
 By 2026, AI coding has moved from "autocomplete assistant" to "autonomous builder." But the real productivity leap isn't one agent writing faster — it's the ability to **start several agents in parallel**, each pushing forward a different task.
@@ -21,7 +23,7 @@ To answer that, we first have to understand: **what's blocking parallelism in th
 
 ## Three core bottlenecks
 
-**What actually limits AI-assisted dev throughput isn't generation speed — it's three stages that force a human to be deeply in the loop.** They turn a human into a single-point bottleneck, and the number of agents stops mattering once that happens.
+> **TL;DR:** What actually limits AI-assisted dev throughput isn't generation speed — it's three stages that force a human to be deeply in the loop, turning the human into a single-point bottleneck that no amount of additional agents can route around.
 
 **Bottleneck 1: how do you transfer a requirement cleanly to the agent?** What's in your head is vague, implicit, context-laden. What the agent needs is explicit and actionable. That gap usually gets closed through repeated back-and-forth.
 
@@ -37,7 +39,9 @@ The three share one trait: they all require human-in-the-loop. And human attenti
 
 ## Through 2025: human as driver, AI as copilot
 
-**Before Opus 4.5, the field's response to all three bottlenecks shared one underlying shape: make human-AI collaboration more efficient — not make AI self-sufficient.** That shape locked us in: the human was the driver, AI was the Copilot, and real parallelism was out of reach.
+> **TL;DR:** Before Opus 4.5 the shared shape of all solutions was "make human-AI collaboration more efficient," not "let AI close the loop itself" — human as driver, AI as Copilot. Parallelism was pointless: it just turned queueing into simultaneous queueing.
+
+Before Opus 4.5, the field's response to all three bottlenecks shared one underlying shape: make human-AI collaboration more efficient — not make AI self-sufficient. That shape locked us in: the human was the driver, AI was the Copilot, and real parallelism was out of reach.
 
 On **requirement transfer**, there were two mainstream paths. One was Spec-based — describe the requirement as formally as possible, then hand it to the agent. The other was multi-round conversation — argue with the agent until it actually understood. Both required the human's continuous participation.
 
@@ -53,7 +57,9 @@ Parallel development made little sense in this era. You could open five agent wi
 
 ## Late 2025: the turning point
 
-**In the second half of 2025, frontier models took a substantial collective step forward in code capability, instruction following, and long-horizon task completion.** Models led by Opus 4.5 made it possible, for the first time, to replace deep human involvement in each of the three bottlenecks with mechanisms. In other words, real parallel development finally had its prerequisites.
+> **TL;DR:** In H2 2025 frontier models leveled up along four axes — autonomous debugging, instruction following, Skill-based discipline, and Computer Use. That shift lets mechanisms replace live human involvement in all three bottlenecks. Separately, failure got cheap — "try N approaches and pick the winner" became a default move.
+
+In the second half of 2025, frontier models took a substantial collective step forward in code capability, instruction following, and long-horizon task completion. Models led by Opus 4.5 made it possible, for the first time, to replace deep human involvement in each of the three bottlenecks with mechanisms. In other words, real parallel development finally had its prerequisites.
 
 The shift showed up in four directions:
 
@@ -89,6 +95,8 @@ On the tooling side: I've distilled my own practice along these lines into a fra
 
 ### Key 1: requirement alignment — let the agent figure out what you want
 
+> **TL;DR:** Have the agent surface the hidden assumptions in your ask, rank the candidates using priors, and assemble them into a few complete draft proposals for you to pick. You go from "answering questions" to "reviewing proposals."
+
 Unclear requirements are the most common reason for rework in AI-assisted development. You thought you explained it; the agent thought it understood; the result is nothing like what you had in mind. Two complementary approaches to this problem.
 
 **Approach 1: exhaustive questioning — force the agent to surface its blind spots**
@@ -118,6 +126,8 @@ One special note: **requirement alignment is the one step in the whole flow that
 ---
 
 ### Key 2: functional correctness — test-plan-driven development
+
+> **TL;DR:** Before any code is written, produce a test plan covering unit / integration / E2E. That plan must be reviewed by an independent party (another agent or you) to prevent one agent from contaminating both tests and implementation at once. Non-functional requirements get their own dedicated Skills.
 
 If humans no longer review every line, who guarantees correctness? The answer is tests — but not ad-hoc tests. Before any code is written, produce a complete test plan.
 
@@ -201,6 +211,8 @@ One more thing: **real environment, not simulated** — for a web app, actually 
 
 ### Key 3: maintainability — constrain agent behavior with engineering discipline
 
+> **TL;DR:** Encode "what good code looks like" as Skill files so the agent checks itself against them during coding and self-review. The remaining architectural trade-offs are the ones you spot-check.
+
 Correctness is guaranteed by tests. What guarantees maintainability? Rules.
 
 Software design has a set of time-tested core principles (strongly influenced by John Ousterhout's *A Philosophy of Software Design*), all aimed at one thing: **controlling the growth of complexity**. In the AI development context, these principles can be encoded as Skill files and handed to the agent for use during coding and self-review. Here are the key ones.
@@ -244,6 +256,8 @@ Your part: encode the design principles as Skill files loaded when the agent sta
 ---
 
 ## Scheduling techniques for parallel development
+
+> **TL;DR:** Three modes you can use reliably today, coarse to fine — cross-project / same-repo different directions (git worktree isolates) / cross-concern within a task — plus an experimental fourth where the agent splits the task itself. Modes aren't mutually exclusive; nest them.
 
 The three keys deal with "can I let go of one agent?" This section deals with **how to let go of several at once**.
 
@@ -291,7 +305,7 @@ In practice, the first three modes aren't mutually exclusive — you can nest Mo
 
 ## The new bottleneck parallelism creates: you can't digest all the output
 
-**This section isn't about a future bottleneck — it's a wall you hit immediately once you get to three or more parallel agents.**
+> **TL;DR:** Not a future bottleneck — the moment you run 3+ agents in parallel, their output (code, test reports, feedback) piles up on you. The fix ("let agents digest agents' output") is exactly what's not yet working today.
 
 Imagine you're running a few parallel agents as described above, each producing code changes, test reports, user-test feedback, and retros. The first week you feel great about the pace. The second week you realize most of your day is gone to reading everyone's reports — and plenty of those reports are duplicates or low-priority trivia piling up on you. You've moved from "reviewing code" to "reading reports." The bottleneck quietly returned to you.
 
@@ -319,7 +333,9 @@ Until the loop closes, what you can do is build some transitional buffering: enf
 
 ## But this won't make your life easier
 
-**After all the upside, an honest note: this path won't make you less tired. In fact, probably more.** Output scales up, but so does the mental load — and almost without gaps.
+> **TL;DR:** Output goes up, but so does cognitive load per unit time — the math is favorable but not free. You have to deliberately leave yourself room.
+
+After all the upside, an honest note: this path won't make you less tired. In fact, probably more. Output scales up, but so does the mental load — and almost without gaps.
 
 Writing code has a rhythm — write a few lines, run, tweak, run — hand and brain trade off, and you can half-automate through a stuck moment. In the parallel-scheduling mode, your whole day is judgment calls: is this requirement draft right? Which design should we take? Whose priority is higher? What pattern emerges from this retro? One agent produces a direction decision every few minutes; five agents running in parallel stack five decisions on your plate. Total hours might not go up, but **mental load per minute goes up sharply**.
 
