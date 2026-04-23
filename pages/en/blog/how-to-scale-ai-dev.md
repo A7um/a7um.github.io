@@ -145,6 +145,21 @@ These test cases collectively represent "everything a correct implementation has
 
 Under this pattern, you don't have to read every line of the agent's code. You only have to review the test plan itself — is it reasonable, does it cover the key scenarios? Reviewing a test plan is far cheaper cognitively than reviewing implementation code, because a test plan describes "what should happen" while code describes "how it's done." You, as the requirement's originator, naturally have judgment on the former; the latter requires deep code comprehension.
 
+#### Prerequisite: the agent needs an environment it can actually operate
+
+The agent running its own tests, debugging, doing end-to-end flows — all of it rests on a prerequisite people skip far too often: **the agent needs an environment in which it can actually operate the system.** Plenty of teams hand the agent a docker image with only source code and then wonder why it can't surface real issues.
+
+"Operate" doesn't just mean "a working docker image." You have to expose the **operation capabilities** specific to the app type:
+
+- **CLI / APIs** — shell + logs + test framework. Lowest bar.
+- **Web apps** — beyond getting the service up, you must expose **browser-use capability** (a Playwright server, headless Chrome with a CDP port, or VNC). Without that layer, the agent can't click a button, can't observe a page's response, can't do a real end-to-end test.
+- **Desktop / GUI apps** — must expose **GUI-use capability** (X11 forwarding, xdotool, a screenshot pipe). Otherwise the agent can only "imagine" what user interactions look like.
+- **Complex systems** (state machines, async, concurrency, long-lived processes) — beyond logs, you must **expose a debugger** (gdb, DAP, Chrome DevTools protocol, or a language's built-in debugger). Let it set breakpoints, inspect variables, walk the stack — not pile `print` statements into bash and guess.
+
+A simple sanity check: **imagine a new engineer who can only use the tools you've provided — could they reproduce a production bug?** If they can't, the agent can't either.
+
+The agent's capabilities have to match what you'd give a human engineer. This is the foundation TPDD rests on — if it's not in place, the test plan, the independent review, the persona role-play are all air.
+
 #### Why the test plan needs an independent reviewer
 
 There's an easily overlooked trap: if **the same agent** produces both the test plan and the implementation, any misunderstanding of the requirement contaminates both — tests and code go green together, both wrong, and you think everything's fine.
