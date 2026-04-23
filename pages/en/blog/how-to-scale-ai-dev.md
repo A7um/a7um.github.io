@@ -341,4 +341,6 @@ When these conditions break in, your role moves from "pair programmer for each a
 
 **And this payoff isn't limited to development — any knowledge work that can be split into independent subtasks is a candidate.** Coding is just the first case that's actually running.
 
+If you want a more detailed version — I used AI to expand this blog post into a full book that covers each section in more depth, with more examples and operational checklists: [*Parallel Development Handbook* (English)](https://atum.li/ParallelDevelopmentBook).
+
 Reference: [previous post — *How to Make VibeCoding Truly Useful*](/en/blog/how-to-vibecoding/)
