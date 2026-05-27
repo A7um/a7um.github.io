@@ -131,7 +131,7 @@ My team and I will continue to work on long-term security challenges in the era 
 
 ### 2. Using AI to Automatically Discover Vulnerabilities and Backdoors
 
-The discovery of high-value vulnerabilities has traditionally depended on large amounts of human effort. I have been long interested in how to use AI to improve the automation and intelligence of this process. Our current systems have automatically discovered **60+ high-value vulnerabilities** in widely used open-source software, more than half of which have substantial real-world impact (such as server-side RCE or private-key recovery in cryptographic algorithms). Overall, their capabilities are approaching those of mid-level human experts.  
+The discovery of high-value vulnerabilities has traditionally depended on large amounts of human effort. I have been long interested in how to use AI to improve the automation and intelligence of this process. Our current systems have automatically discovered **160+ high-value vulnerabilities** in high-profile targets including QEMU, the Linux kernel, OpenSSL, OpenVPN, Envoy, Nginx, and many others, more than half of which have substantial real-world impact (such as server-side RCE or private-key recovery in cryptographic algorithms). Overall, their capabilities are approaching those of mid-level human experts.  
 In parallel, I am actively exploring automated detection of software backdoors and hope to make breakthroughs in this direction in the future.
 
 ### 3. Quantum Computing Threats and Post-Quantum Migration

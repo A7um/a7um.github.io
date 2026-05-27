@@ -113,6 +113,7 @@
 
 #### 3. 软件与供应链安全
 *   **Chromium的n-day漏洞在Electron等环境中如何产生0day攻击效果**: [DEFCON 31, ndays are also 0days: Can hackers launch 0day RCE attack on popular software only with chromium ndays?](https://forum.defcon.org/node/246107)
+*   **打破"可信"加密库的神话，揭示广泛使用的密码学库中的供应链风险**: [Black Hat USA 2026, Breaking the Unbreakable: Dismantling the Myth of "Trusted" Cryptographic Libraries](https://blackhat.com/us-26/briefings/schedule/index.html#breaking-the-unbreakable-dismantling-the-myth-of-trusted-cryptographic-libraries-on-demand-only-53162)
 *   **针对xz类高隐蔽后门风险的评估框架** [AAAI 2026, An LLM-based Quantitative Framework for Evaluating High-Stealthy Backdoor Risks in OSS Supply Chains]()
 
 ### 二、解决方案研发
