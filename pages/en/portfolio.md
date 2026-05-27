@@ -111,7 +111,7 @@ I focus on new security issues emerging in the AI era and explore them from an a
 
 #### 3. Software & Supply Chain Security
 *   **How Chromium N-day Vulnerabilities Can Produce 0-day Attack Effects in Environments Like Electron**: [DEFCON 31, ndays are also 0days: Can hackers launch 0day RCE attack on popular software only with chromium ndays?](https://forum.defcon.org/node/246107)
-*   **Breaking the Unbreakable: Dismantling the Myth of "Trusted" Cryptographic Libraries**: [Black Hat USA 2026, Breaking the Unbreakable: Dismantling the Myth of "Trusted" Cryptographic Libraries](https://blackhat.com/us-26/briefings/schedule/index.html#breaking-the-unbreakable-dismantling-the-myth-of-trusted-cryptographic-libraries-on-demand-only-53162)
+*   **Validated against 70+ widely deployed open-source cryptographic libraries spanning Java, Rust, Python, Go, and C — resulting in 20+ confirmed vulnerabilities (nearly half high to critical severity, 9 CVEs assigned to date with additional disclosures in progress), affecting widely trusted projects including Bouncy Castle, Rust Crypto, the Python Cryptographic Authority, and Consensys gnark**: [Black Hat USA 2026, Breaking the Unbreakable: Dismantling the Myth of "Trusted" Cryptographic Libraries](https://blackhat.com/us-26/briefings/schedule/index.html#breaking-the-unbreakable-dismantling-the-myth-of-trusted-cryptographic-libraries-on-demand-only-53162)
 *   **Assessment Framework for xz-type High-Stealth Backdoor Risks**: [AAAI 2026, An LLM-based Quantitative Framework for Evaluating High-Stealthy Backdoor Risks in OSS Supply Chains]()
 
 ### 2. Solution Development
