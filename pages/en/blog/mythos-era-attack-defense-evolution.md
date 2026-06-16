@@ -3,7 +3,7 @@ title: "After Mythos: Security Defense Strategy and the Security Skill Stack Mus
 date: 2026-06-11
 tags: [software-security, AI]
 abstract: >
-  On June 11, 2026, I led an in-depth discussion at AGI Bar in Shanghai with more than thirty security practitioners about the cyber capabilities Mythos demonstrated. When agents can continuously perform asset discovery, vulnerability analysis, PoC adaptation, path reasoning, and operational orchestration, how should cybersecurity be rebuilt? This post starts from attack-chain compression, introduces the defender's equation in the AI era, and outlines a transition path from see-validate-respond to reachability governance, blast-radius compression, and Agent Skill engineering.
+  On June 11, 2026, I led an in-depth discussion at AGI Bar in Shanghai with more than thirty security practitioners about the cyber capabilities Mythos demonstrated. When agents can continuously perform asset discovery, vulnerability analysis, PoC adaptation, path reasoning, and operational orchestration, how should cybersecurity be rebuilt? This post starts from attack-chain compression, introduces the defender's equation in the AI era, and outlines a path from asset inventory, continuous red team validation and vulnerability scanning, and automated security operations to reachability governance, blast-radius compression, and Agent Skill engineering.
 ---
 
 On June 11, 2026, I led an in-depth discussion at AGI Bar in Shanghai with more than thirty security practitioners from different backgrounds. Some had spent years in traditional offense and defense; others focused on security operations and enterprise rollout; still others were working on AI agents, model security, and automated red/blue teams.
@@ -72,11 +72,7 @@ A semi-quantitative ranking model can express it this way:
 
 > **Defender's Equation in the AI era**
 >
-> **E[L] ≈ D(t) · P_e · P_reach · B · T_e**
->
-> **Expected loss ≈ vulnerability/entry discovery rate · exploitability probability · reachability · blast radius · exposure window**
->
-> E[L] is the defender's expected loss per unit time.
+> **E[L]{expected loss} ≈ D(t){vulnerability/entry discovery rate} · P_e{exploitability probability} · P_reach{reachability} · B{blast radius} · T_e{exposure window}**
 
 | Variable | Meaning | Change in the AI agent era | Mainly influenced by |
 |------|------|---------------------|--------------|
@@ -170,26 +166,26 @@ So the first contradiction in AI-era defense building is:
 
 > Long term, structural transformation matters most; short term, automation is what lands most easily.
 
-Most enterprises will not start with "enterprise-wide zero trust." The more realistic path is to introduce AI along existing security mainlines first—see yourself clearly, validate yourself clearly, respond faster—then use that automation to push long-term reachability and blast-radius governance.
+Most enterprises will not start with "enterprise-wide zero trust." The more realistic path is to introduce AI along existing security mainlines first—build asset inventory, continuous red team validation and vulnerability scanning, and automated security operations—then use that automation to push long-term reachability and blast-radius governance.
 
 ---
 
-## V. A Transition Path: See, Validate, Respond
+## V. Capabilities You Can Build in the Short Term
 
 <center><img src='/static/mythos-era-attack-defense-evolution/chapter-05-see-validate-respond-loop.png' /></center>
-<center>Figure: A three-stage transition for AI defense building—from seeing yourself, to validating yourself, to responding to yourself.</center>
+<center>Figure: AI defense building through asset inventory, continuous red team validation and vulnerability scanning, and automated security operations.</center>
 
-See yourself, validate yourself, respond to yourself—these are easily conflated, but they solve three different problems.
+Asset inventory, continuous red team validation and vulnerability scanning, and automated security operations—these are easily conflated, but they solve three different problems.
 
-**See yourself** answers: what do I have, where is it exposed, who owns it, and what systems, code, identities, and data does it connect to? Its output is a continuously updated asset and exposure map.
+**Asset inventory** answers: what do I have, where is it exposed, who owns it, and what systems, code, identities, and data does it connect to? Its output is a continuously updated asset and exposure map.
 
-**Validate yourself** answers: among these exposures, which can actually be exploited; after exploitation, can a path form; can that path ultimately reach critical business, core data, or high-privilege identity? Its output is not an asset inventory, but validated attack paths and remediation priorities.
+**Continuous red team validation and vulnerability scanning** answers: among these exposures, which can actually be exploited; after exploitation, can a path form; can that path ultimately reach critical business, core data, or high-privilege identity? Its output is not an asset inventory, but validated attack paths and remediation priorities.
 
-**Respond to yourself** answers: when something abnormal has already happened, can I use data and process to quickly complete correlation analysis, impact assessment, remediation recommendations, human approval, and post-incident closure? Its output is an observable, authorizable, rollback-capable response pipeline.
+**Automated security operations** answers: when something abnormal has already happened, can I use data and process to quickly complete correlation analysis, impact assessment, remediation recommendations, human approval, and post-incident closure? Its output is an observable, authorizable, rollback-capable response pipeline.
 
 The first step gets enterprises out of "we do not even know what we have." The second lets enterprises run exploitability and impact ahead of attackers. The third shortens T_e (exposure window)—while acknowledging that high-risk remediation still needs human approval and fallback.
 
-### Step 1: See Yourself
+### Step 1: Asset Inventory
 
 The first kilometer of enterprise security is still assets.
 
@@ -207,7 +203,7 @@ More precisely, it must connect asset clues scattered across systems, external e
 
 This path may not immediately solve east-west lateral movement, but it first reduces attacker entry count and turns "what I have, where it is exposed, who owns it" into a continuously updated fact.
 
-### Step 2: Validate Yourself
+### Step 2: Continuous Red Team Validation and Vulnerability Scanning
 
 If attackers can use AI to automatically discover assets, analyze vulnerabilities, and adapt exploitation, defenders should use AI to do the same to themselves first.
 
@@ -228,7 +224,7 @@ The value of this path is that it does not require zero trust transformation on 
 
 From the defender's equation, this is really a fight for first mover advantage on D(t) (vulnerability/entry discovery rate) and P_e (exploitability probability): what attackers can discover, defenders discover first; what attackers can exploit, defenders validate first; what attackers can automate, defenders pipeline first.
 
-### Step 3: Respond to Yourself
+### Step 3: Automated Security Operations
 
 The SOC will not disappear. It will become more automated, more engineering-driven, and more like the runtime environment for security agents.
 
@@ -325,22 +321,22 @@ Step three: automate SOC workflows, using a more complete data foundation and cl
 
 Step four: write the judgment methods accumulated in these processes into SOPs and Skills. Alert retrospectives, red/blue exercises, continuous validation, vulnerability remediation, and emergency response should all update these capability packs in return—and further support long-term P_reach (reachability) and B (blast radius) governance: zero trust, micro-segmentation, least privilege, short-lived compute, and data minimization.
 
-In other words, short term you do not skip structural transformation—you first use AI to see the real system clearly, validate it clearly, and respond effectively; long term you use those facts and workflows to push systems toward being harder to reach and less worth compromising.
+In other words, short term you do not skip structural transformation—you first use AI to build asset inventory, continuous red team validation and vulnerability scanning, and automated security operations; long term you use those facts and workflows to push systems toward being harder to reach and less worth compromising.
 
 ---
 
 ## Closing
 
 <center><img src='/static/mythos-era-attack-defense-evolution/chapter-08-closing-defense-shift.png' /></center>
-<center>Figure: AI raises the speed of seeing, validating, and responding; people design systems that are harder to reach and harder to move through.</center>
+<center>Figure: AI raises the speed of asset inventory, continuous validation, and security operations; people design systems that are harder to reach and harder to move through.</center>
 
 The most dangerous thing about the Mythos era is not that AI is too strong—it is that we are still planning for next-generation attack automation using last-generation security operations rhythm.
 
-Zero trust, micro-segmentation, least privilege, and secure-by-default are not new answers. They have always been correct answers—just too heavy, too expensive, and too dependent on organizational capability, so for a long time only engineering-strong companies could push them systematically.
+Zero trust, micro-segmentation, and least privilege are not new answers. They have always been correct answers—just too heavy, too expensive, and too dependent on organizational capability, so for a long time only engineering-strong companies could push them systematically.
 
 AI agents did not overturn those answers. They put them back on the table. The faster the attack chain, the less room there is to buy time through response alone; the more automated attackers become, the more system reachability and blast radius matter.
 
-The realistic path will not arrive in one step. Most enterprises are more likely to use AI first to see themselves, validate themselves, and respond to themselves—then use the data, SOPs, Skills, and retrospective experience from that process to push zero trust, micro-segmentation, least privilege, and data governance off the long-term backlog.
+The realistic path will not arrive in one step. Most enterprises are more likely to use AI first to build asset inventory, continuous red team validation and vulnerability scanning, and automated security operations—then use the data, SOPs, Skills, and retrospective experience from that process to push zero trust, micro-segmentation, least privilege, and data governance off the long-term backlog.
 
 Human value will also be reassessed in this process. What was most valuable before was people who could personally run complex workflows end to end; what becomes more valuable next is people who can explain complex workflows clearly, break them down precisely, write them into SOPs, turn them into Agent Skills, and continuously evaluate whether they actually reduced D(t) (vulnerability/entry discovery rate), T_e (exposure window), P_reach (reachability), and B (blast radius).
 
@@ -348,6 +344,6 @@ Human experience will not disappear—but it must move from "only in my head" to
 
 In one sentence:
 
-> AI is responsible for raising defenders' speed of seeing, validating, and responding; people are responsible for designing systems that are harder to reach, harder to move through, and less worth compromising.
+> AI is responsible for raising the speed of asset inventory, continuous red team validation and vulnerability scanning, and automated security operations; people are responsible for designing systems that are harder to reach, harder to move through, and less worth compromising.
 
 That is where the defense equation truly must be rewritten in the AI agent era.
