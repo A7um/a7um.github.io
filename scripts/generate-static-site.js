@@ -33,7 +33,7 @@ marked.use(markedHighlight({
 
 // Site configuration
 const SITE_CONFIG = {
-    title: 'atum@Minimax',
+    title: 'atum@MiniMax',
     baseUrl: 'https://a7um.github.io',
     description: {
         en: 'Personal blog about security, philosophy, and technology',
@@ -210,7 +210,7 @@ function generateBlogListPage(lang, posts, allPosts) {
     const allText = 'All';
     const tagFilterHTML = sortedTags.length > 0 ? `
         <div class="prompt-line">
-            <span class="prompt">atum@Minimax % </span>
+            <span class="prompt">atum@MiniMax % </span>
             <span class="command">ls tags</span>
         </div>
         <div class="tag-filter-container">
@@ -224,7 +224,7 @@ function generateBlogListPage(lang, posts, allPosts) {
     // Generate blog list prompt
     const blogListPrompt = `
         <div class="prompt-line">
-            <span class="prompt">atum@Minimax % </span>
+            <span class="prompt">atum@MiniMax % </span>
             <span class="command">ls -l</span>
         </div>
     `;
@@ -409,7 +409,7 @@ function generateTagPage(lang, tag, posts) {
     const allText = 'All';
     const tagFilterHTML = `
         <div class="prompt-line">
-            <span class="prompt">atum@Minimax % </span>
+            <span class="prompt">atum@MiniMax % </span>
             <span class="command">ls tags</span>
         </div>
         <div class="tag-filter-container">
@@ -426,7 +426,7 @@ function generateTagPage(lang, tag, posts) {
     // Generate blog list prompt with tag filter
     const blogListPrompt = `
         <div class="prompt-line">
-            <span class="prompt">atum@Minimax % </span>
+            <span class="prompt">atum@MiniMax % </span>
             <span class="command">ls -l | grep ${tag}</span>
         </div>
     `;

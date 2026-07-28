@@ -1,6 +1,6 @@
 # About Me
 
-Hello, I'm Atum, a researcher, AI security expert, and AI enthusiast, currently working at Minimax and formerly a Researcher at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
+Hello, I'm Atum, a researcher, AI security expert, and AI enthusiast, currently working at MiniMax and formerly a Researcher at [Tencent's Xuanwu Lab](https://xlab.tencent.com/). [I believe that the underlying logic of technology is interconnected, and I aspire to become a full-stack technical professional](/en/blog/why-and-how-to-be-full-stack/). Mastering a comprehensive technology stack not only provides me with cross-domain perspectives but also gives me broader thinking when designing solutions and deeper insights when discovering vulnerabilities.
 
 I firmly believe that AI will ultimately transform the way humans work and live, and that AGI will eventually arrive. Therefore, I actively follow the latest developments in AI and continuously explore new applications, integrating them into my daily life and work.
 
