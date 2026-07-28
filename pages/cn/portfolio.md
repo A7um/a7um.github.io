@@ -125,6 +125,7 @@
 [一种基于安全大模型的EDR告警研判机器人](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
 #### 2.后量子密码迁移
 *   **分析量子计算威胁并研究应对方案，包括密码资产识别、供应链治理等**：[Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/speaker/guancheng-li)
+*   **评估开源生态的后量子密码就绪度**：ACM ASE 2026, Post-Quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems
 #### 3. 利用硬件特性辅助代码分析类任务
 * **利用 Intel Processor Trace 辅助绕过反调试**：[S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
 * **基于 Intel Processor Trace 的高效多核执行流记录与重放**：[CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)
