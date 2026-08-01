@@ -123,7 +123,7 @@ I focus on new security issues emerging in the AI era and explore them from an a
 [An EDR Alert Analysis Robot Based on Security LLM](https://xlab.tencent.com/cn/2024/01/26/edr-alert-analysis-robot/)
 #### 2. Post-Quantum Cryptography Migration
 *   **Analyzing Quantum Computing Threats and Researching Response Solutions, Including Cryptographic Asset Identification and Supply Chain Governance**: [Black Hat MEA 2025, RSA/EC Under Quantum Countdown: Quantum Timeline, Insights on Migration Challenges and Our Open-Source Solutions](https://blackhatmea.com/speaker/guancheng-li)
-*   **Assessing Post-Quantum Cryptography Readiness Across Open-Source Ecosystems**: ACM ASE 2026, Post-Quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems
+*   **Assessing Post-Quantum Cryptography Readiness Across Open-Source Ecosystems**: [IEEE/ACM ASE 2026, Post-Quantum Cryptography in the Wild: Assessing the Readiness of Open-Source Ecosystems](https://conf.researchr.org/details/ase-2026/ase-2026-research-track/165/Post-quantum-Cryptography-in-the-Wild-Assessing-the-Readiness-of-Open-Source-Ecosyst)
 #### 3. Using Hardware Features for Code Analysis Tasks
 * **Using Intel Processor Trace to Bypass Anti-debugging**: [S&P 2018 Poster/Demo: PT-DBG: Bypass Anti-debugging with Intel Processor Tracing](https://www.ieee-security.org/TC/SP2018/poster-abstracts/oakland2018-paper14-poster-abstract.pdf)
 * **Efficient Multi-core Execution Flow Recording and Replay Based on Intel Processor Trace**: [CCS 2020 Poster/Demo: RIPT — An Efficient Multi-Core Record-Replay System](https://dl.acm.org/doi/10.1145/3372297.3420021)
