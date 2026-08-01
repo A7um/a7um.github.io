@@ -82,6 +82,63 @@ abstract: Brief description of the post
 Your content here...
 ```
 
+### Drafts (never published, never pushed)
+
+When you start a new post and are not ready to share it — not even on a
+feature branch — keep it out of `pages/` so it is never committed.
+
+There are two supported workflows:
+
+**1. Local-only drafts folder (recommended)**
+
+Put work-in-progress posts under `drafts/{lang}/blog/`. This folder is
+listed in `.gitignore`, so nothing inside it is ever tracked by git,
+committed, or pushed to any branch/remote.
+
+```
+drafts/
+├── en/
+│   └── blog/
+│       └── my-new-post.md
+└── cn/
+    └── blog/
+        └── my-new-post.md
+```
+
+To preview drafts locally together with the published posts:
+
+```bash
+npm run preview-drafts   # build with INCLUDE_DRAFTS=1, then serve on :8000
+# or, just build:
+npm run build-drafts
+```
+
+The production GitHub Actions deploy job runs `npm run build-static`
+without `INCLUDE_DRAFTS`, so drafts can never reach GitHub Pages.
+
+When a draft is ready, move the file from `drafts/{lang}/blog/` to
+`pages/{lang}/blog/` and commit it normally.
+
+**2. `draft: true` frontmatter flag**
+
+If you prefer to keep a draft alongside published posts in `pages/`,
+add `draft: true` to its frontmatter:
+
+```markdown
+---
+title: Work In Progress
+date: 2026-04-21
+tags: [wip]
+abstract: Not ready yet.
+draft: true
+---
+```
+
+Posts with `draft: true` are stripped from normal builds (and therefore
+from deploys) and are only rendered when `INCLUDE_DRAFTS=1` is set.
+Note: this option *does* place the file in git if you commit it, so use
+option 1 if you want the draft to stay completely off any branch.
+
 ### Static Pages
 
 Create markdown files:
