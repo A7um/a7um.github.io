@@ -30,11 +30,7 @@ abstract: >
 
 因此，AI 时代的毕业生要想破局，需要完成一次关键的跃迁——在过硬的“干活”能力的基础上，还需要掌握“定目标”和“做事情”的能力。
 
-![](/static/what-companies-look-for-in-ai-era-graduates/part-02-before.png)
-
 ## PART 02｜定目标：洞察力决定方向，敢想敢做决定上限
-
-![](/static/what-companies-look-for-in-ai-era-graduates/part-02-after.png)
 
 很多同学进入职场后，面对的第一个困境往往是：在没有导师或学长指导的情况下，不知道自己该干什么（缺乏洞察）；或者隐约知道该干什么，但因为太难、怕失败而不敢去碰（缺乏心力）。
 

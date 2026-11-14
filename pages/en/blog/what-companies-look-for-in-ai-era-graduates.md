@@ -30,11 +30,7 @@ For a long time, doing hands-on work quickly and well was what most technical pe
 
 To get ahead in the AI era, graduates need to build on strong hands-on skills and learn to set goals and make things happen.
 
-![](/static/what-companies-look-for-in-ai-era-graduates/part-02-before.png)
-
 ## PART 02 | Setting goals takes insight and the nerve to aim high
-
-![](/static/what-companies-look-for-in-ai-era-graduates/part-02-after.png)
 
 One of the first difficulties many graduates face at work is deciding what to do without an adviser or a more senior student to guide them. Some can't see where to start. Others have a sense of what needs doing, but the problem looks too hard or they're afraid of failing.
 
